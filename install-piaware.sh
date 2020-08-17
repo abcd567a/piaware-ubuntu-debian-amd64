@@ -49,6 +49,10 @@ echo -e "\e[32mInstalling piaware package\e[39m"
 cd ../
 sudo dpkg -i piaware_3.8.1*.deb
 
+echo -e "\e[32mEnabling piaware (for Kali Linux)\e[39m"
+sudo systemctl enable piaware
+sudo systemctl restart piaware
+
 echo ""
 echo -e "\e[32mPIAWARE INSTALLATION COMPLETED \e[39m"
 echo ""
