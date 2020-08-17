@@ -1,5 +1,7 @@
-# piaware-ubuntu20-amd64
-### Installation of dump1090-fa and piaware 3.8.1 on Ubuntu 20 amd64 on PC (by building packages from source code)
+## Automated Installation of dump1090-fa 3.8.1 and piaware 3.8.1 (by building packages from source code), on following OS: </br>
+### (1) Ubuntu-20.04-desktop-amd64 </br>
+### (2) Kali-linux-2020.2-amd64 </br>
+
 </br>
 
 ## (1) DUMP1090-FA
