@@ -9,6 +9,10 @@ sudo apt install -y git dh-systemd devscripts pkg-config
 echo -e "\e[32mInstalling dependencies \e[39m"
 sudo apt install -y lighttpd librtlsdr-dev libusb-1.0-0-dev libncurses5-dev
 
+echo -e "\e[32mEnabling lighttpd (for Kali Linux)\e[39m"
+sudo systemctl enable lighttpd
+sudo systemctl restart lighttpd
+
 echo -e "\e[32mCloning dump1090-fa source code\e[39m"
 
 cd ${INSTALL_DIRECTORY}
