@@ -40,10 +40,11 @@ sudo systemctl restart dump1090-fa
 
 echo ""
 echo -e "\e[32mDUMP1090-FA INSTALLATION COMPLETED \e[39m"
+echo -e "\e[31mREBOOT Computer \e[39m"
+echo -e "\e[31mREBOOT Computer \e[39m"
+echo -e "\e[31mREBOOT Computer \e[39m"
+echo -e "\e[32mAfter REBOOT, check status by following command \e[39m"
+echo -e "\e[33msudo systemctl status dump1090-fa  \e[39m"
 echo ""
-echo -e "\e[32mCheck status by following command: \e[39m"
-echo ""
-echo -e "\e[33m    sudo systemctl status dump1090-fa  \e[39m"
-echo ""
-echo -e "\e[31mIf status shows:\e[39m" "\e[33mFailed with result 'exit-code'\e[39m""\e[31m, then REBOOT Computer \e[39m"
-echo ""
+
+
