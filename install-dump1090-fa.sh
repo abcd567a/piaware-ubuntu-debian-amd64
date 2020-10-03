@@ -23,9 +23,8 @@ echo -e "\e[32mWorkaround for non-available package libbladerf1\e[39m"
 echo -e "\e[32mThe package libbladerf1 is missing from package libbladerf-dev in Ubuntu 20 repository\e[39m"
 
 cd ${INSTALL_DIRECTORY}/dump1090
-sudo sed -i 's/BLADERF=yes/BLADERF=no/' debian/rules
-sudo sed -i  's/, libbladerf-dev//' debian/control
-sudo sed -i 's/libbladerf1 (>= 0.2016.06), //' debian/control
+sudo sed -i '0,/BLADERF = yes/s//BLADERF = no/' debian/rules
+sudo sed -i '/libbladerf-dev/d' debian/control
 
 echo -e "\e[32mBuilding dump1090-fa package\e[39m"
 sudo dpkg-buildpackage -b --no-sign
