@@ -47,7 +47,7 @@ sudo dpkg-buildpackage -b --no-sign
 
 echo -e "\e[32mInstalling piaware package\e[39m"
 cd ../
-sudo dpkg -i piaware_3.8.1*.deb
+sudo dpkg -i piaware_*.deb
 
 echo -e "\e[32mEnabling piaware (for Kali Linux)\e[39m"
 sudo systemctl enable piaware
