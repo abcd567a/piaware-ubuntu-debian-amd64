@@ -8,6 +8,7 @@ sudo apt install -y git dh-systemd devscripts pkg-config
 
 echo -e "\e[32mInstalling dependencies \e[39m"
 sudo apt install -y lighttpd librtlsdr-dev libusb-1.0-0-dev libncurses5-dev
+sudo apt install -y libhackrf-dev liblimesuite-dev 
 
 echo -e "\e[32mEnabling lighttpd (for Kali Linux)\e[39m"
 sudo systemctl enable lighttpd
@@ -32,7 +33,7 @@ sudo dpkg-buildpackage -b --no-sign
 
 echo -e "\e[32mInstalling dump1090-fa \e[39m"
 cd ../  
-sudo dpkg -i dump1090-fa_3.8.1*.deb
+sudo dpkg -i dump1090-fa_*.deb
 
 echo -e "\e[32mEnabling dump1090-fa (for Kali Linux)\e[39m"
 sudo systemctl enable dump1090-fa
