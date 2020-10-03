@@ -1,6 +1,8 @@
 ## Automated Installation of dump1090-fa 4.0 and piaware 4.0 (by building packages from source code), on following OS: </br>
-### (1) Ubuntu-20.04-desktop-amd64 </br>
-### (2) Kali-linux-2020.3-amd64 </br>
+
+### (1) Ubuntu 20 - amd64 </br>
+### (2) Debian 10 - amd64 </br>
+### (3) Kali-linux 2020 - amd64 </br>
 
 </br>
 
