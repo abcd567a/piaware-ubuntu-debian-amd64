@@ -34,8 +34,6 @@ echo -e "\e[32mDUMP1090-FA INSTALLATION COMPLETED \e[39m"
 echo -e "\e[31mREBOOT Computer \e[39m"
 echo -e "\e[31mREBOOT Computer \e[39m"
 echo -e "\e[31mREBOOT Computer \e[39m"
-echo -e "\e[32mAfter REBOOT, check status by following command \e[39m"
-echo -e "\e[33msudo systemctl status dump1090-fa  \e[39m"
 echo ""
 
 
