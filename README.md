@@ -16,7 +16,7 @@ Copy-paste following command in SSH console and press Enter key. The script will
 `sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu20-amd64/master/install-piaware.sh)" `</br></br>
 
 ## (3) PIAWARE-WEB
-Copy-paste following command in SSH console and press Enter key. The script will install piaware. </br></br>
+Copy-paste following command in SSH console and press Enter key. The script will install piaware-web. </br></br>
 `sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu20-amd64/master/install-piaware-web.sh)" `</br></br>
 
 
