@@ -19,9 +19,6 @@ echo -e "\e[32mInstalling piaware-web package \e[39m"
 cd ../
 sudo dpkg -i piaware-web_4.0_all.deb
 
-sudo systemctl enable piaware-web
-sudo systemctl restart piaware-web
-
 echo ""
 echo -e "\e[32mPIAWARE-WEB INSTALLATION COMPLETED \e[39m"
 echo ""
