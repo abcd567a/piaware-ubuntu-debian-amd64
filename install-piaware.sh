@@ -14,9 +14,9 @@ echo -e "\e[32mCloning tcl-tls source code \e[39m"
 
 cd  ${INSTALL_DIRECTORY}
 git clone http://github.com/flightaware/tcltls-rebuild.git  
-echo -e "\e[32mbuilding tcl-tls package \e[39m"
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 git reset --hard origin/master
+echo -e "\e[32mbuilding tcl-tls package \e[39m"
 ./prepare-build.sh buster
 cd package-buster
 sudo dpkg-buildpackage -b --no-sign
@@ -35,10 +35,10 @@ sudo apt install -y net-tools tclx8.4 tcllib itcl3
 echo -e "\e[32mCloning piaware source code and building package \e[39m"
 cd ${INSTALL_DIRECTORY}
 git clone http://github.com/flightaware/piaware_builder
-
-echo -e "\e[32mBuilding the piaware package \e[39m"
 cd ${INSTALL_DIRECTORY}/piaware_builder
+git fetch --all
 git reset --hard origin/master
+echo -e "\e[32mBuilding the piaware package \e[39m"
 sudo ./sensible-build.sh buster
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-buster
 sudo dpkg-buildpackage -b --no-sign 
