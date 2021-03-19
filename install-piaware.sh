@@ -39,6 +39,7 @@ git clone http://github.com/flightaware/piaware_builder
 cd ${INSTALL_DIRECTORY}/piaware_builder
 git fetch --all
 git reset --hard origin/master
+VER=$(git describe --tags | sed 's/^v//')
 echo -e "\e[32mBuilding the piaware package \e[39m"
 sudo ./sensible-build.sh buster
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-buster
@@ -46,7 +47,7 @@ sudo dpkg-buildpackage -b --no-sign
 
 echo -e "\e[32mInstalling piaware package\e[39m"
 cd ../
-sudo dpkg -i piaware_*.deb
+sudo dpkg -i piaware_${VER}_*.deb
 
 sudo systemctl enable piaware
 sudo systemctl restart piaware
