@@ -15,6 +15,7 @@ echo -e "\e[32mCloning tcl-tls source code \e[39m"
 cd  ${INSTALL_DIRECTORY}
 git clone http://github.com/flightaware/tcltls-rebuild.git  
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
+git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
 ./prepare-build.sh buster
