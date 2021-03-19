@@ -1,10 +1,6 @@
 #!/bin/bash
 INSTALL_DIRECTORY=${PWD}
 
-echo -e "\e[32mMoving old files/folders to directory OLD\e[39m"
-sudo mkdir ${PWD}/OLD
-sudo mv dump978 dump978-fa* skyaware978* skyview978* ${PWD}/OLD/
-
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
 echo -e "\e[32mInstalling build tools\e[39m"
@@ -19,6 +15,7 @@ cd ${INSTALL_DIRECTORY}
 git clone https://github.com/flightaware/dump978  
 
 cd ${INSTALL_DIRECTORY}/dump978
+git reset --hard origin/master
 echo -e "\e[32mBuilding dump978-fa package\e[39m"
 sudo dpkg-buildpackage -b --no-sign
 
