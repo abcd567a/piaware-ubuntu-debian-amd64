@@ -2,11 +2,6 @@
 
 INSTALL_DIRECTORY=${PWD}
 
-echo -e "\e[32mCreating directory OLD\e[39m"
-sudo mkdir ${PWD}/OLD
-echo -e "\e[32mMoving existing files/folders to directory OLD\e[39m"
-sudo mv piaware_builder tcltls-rebuild ${PWD}/OLD/
-
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
 echo -e "\e[32mInstalling build tools\e[39m"
@@ -21,6 +16,7 @@ cd  ${INSTALL_DIRECTORY}
 git clone http://github.com/flightaware/tcltls-rebuild.git  
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
+git reset --hard origin/master
 ./prepare-build.sh buster
 cd package-buster
 sudo dpkg-buildpackage -b --no-sign
@@ -42,6 +38,7 @@ git clone http://github.com/flightaware/piaware_builder
 
 echo -e "\e[32mBuilding the piaware package \e[39m"
 cd ${INSTALL_DIRECTORY}/piaware_builder
+git reset --hard origin/master
 sudo ./sensible-build.sh buster
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-buster
 sudo dpkg-buildpackage -b --no-sign 
