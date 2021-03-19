@@ -3,7 +3,7 @@ INSTALL_DIRECTORY=${PWD}
 
 echo -e "\e[32mMoving old files/folders to directory OLD\e[39m"
 sudo mkdir ${PWD}/OLD
-sudo mv dump978 dump978-fa* ${PWD}/OLD/
+sudo mv dump978 dump978-fa* skyaware978* skyview978* ${PWD}/OLD/
 
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
