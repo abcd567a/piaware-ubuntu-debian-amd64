@@ -1,6 +1,11 @@
 #!/bin/bash
 INSTALL_DIRECTORY=${PWD}
 
+echo -e "\e[32mCreating directory OLD\e[39m"
+sudo mkdir ${PWD}/OLD
+echo -e "\e[32mMoving existing files/folders to directory OLD\e[39m"
+sudo mv dump1090 dump1090-fa* ${PWD}/OLD/
+
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
 echo -e "\e[32mInstalling build tools\e[39m"
