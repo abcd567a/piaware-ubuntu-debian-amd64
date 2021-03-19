@@ -25,8 +25,9 @@ sudo dpkg-buildpackage -b --no-sign
 
 
 echo -e "\e[32mInstalling dump1090-fa \e[39m"
+VER=$(git describe --tags | sed 's/^v//')
 cd ../
-sudo dpkg -i dump1090-fa_*.deb
+sudo dpkg -i dump1090-fa_${VER}_*.deb
 
 sudo systemctl enable dump1090-fa
 sudo systemctl restart dump1090-fa
