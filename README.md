@@ -1,4 +1,4 @@
-## Automated Installation of dump1090-fa 4.0 and piaware 4.0 (by building packages from source code), on following OS: </br>
+## Automated Installation of dump1090-fa 5.0 and piaware 5.0 (by building packages from source code), on following OS: </br>
 
 ### (1) Ubuntu 20 - amd64 </br>
 ### (2) Debian 10 - amd64 </br>
