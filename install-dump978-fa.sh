@@ -15,6 +15,7 @@ cd ${INSTALL_DIRECTORY}
 git clone https://github.com/flightaware/dump978  
 
 cd ${INSTALL_DIRECTORY}/dump978
+git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mBuilding dump978-fa package\e[39m"
 sudo dpkg-buildpackage -b --no-sign
