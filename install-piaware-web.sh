@@ -11,6 +11,7 @@ echo -e "\e[32mCloning piaware-web source code \e[39m"
 cd  ${INSTALL_DIRECTORY}
 git clone https://github.com/flightaware/piaware-web 
 cd  ${INSTALL_DIRECTORY}/piaware-web
+git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mbuilding piaware-web package \e[39m"
 ./prepare-build.sh buster 
