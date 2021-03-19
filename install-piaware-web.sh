@@ -10,8 +10,9 @@ sudo apt install -y git debhelper dh-systemd
 echo -e "\e[32mCloning piaware-web source code \e[39m"
 cd  ${INSTALL_DIRECTORY}
 git clone https://github.com/flightaware/piaware-web 
-echo -e "\e[32mbuilding piaware-web package \e[39m"
 cd  ${INSTALL_DIRECTORY}/piaware-web
+git reset --hard origin/master
+echo -e "\e[32mbuilding piaware-web package \e[39m"
 ./prepare-build.sh buster 
 cd package-buster
 sudo dpkg-buildpackage -b --no-sign
