@@ -20,7 +20,8 @@ cd package-buster
 sudo dpkg-buildpackage -b --no-sign
 echo -e "\e[32mInstalling piaware-web package \e[39m"
 cd ../
-sudo dpkg -i piaware-web_${VER}_all.deb
+#sudo dpkg -i piaware-web_${VER}_all.deb
+sudo dpkg -i piaware-web_*_all.deb
 sudo service lighttpd force-reload
 echo ""
 echo -e "\e[32mPIAWARE-WEB INSTALLATION COMPLETED \e[39m"
