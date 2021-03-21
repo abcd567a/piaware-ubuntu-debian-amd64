@@ -13,10 +13,10 @@ sudo apt install -y libssl-dev tcl-dev chrpath
 echo -e "\e[32mCloning tcl-tls source code \e[39m"
 
 cd  ${INSTALL_DIRECTORY}
-git clone http://github.com/flightaware/tcltls-rebuild.git  
+git clone https://github.com/flightaware/tcltls-rebuild 
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 git fetch --all
-git reset --hard origin/master
+git reset --hard origin/dev
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
 ./prepare-build.sh buster
 cd package-buster
