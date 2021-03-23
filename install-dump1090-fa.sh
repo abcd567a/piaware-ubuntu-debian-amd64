@@ -1,7 +1,9 @@
 #!/bin/bash
 INSTALL_DIRECTORY=${PWD}
 
-echo -e "\e[32mUpdating\e[39m"
+echo -e "\e[32mFor Kali 2021, adding debian Buster repository to get all packages needed\e[39m"
+sudo echo "deb http://deb.debian.org/debian/ buster main" >> /tmp/deb.list 
+sudo mv /tmp/deb.list /etc/apt/sources.list.d/
 sudo apt update
 echo -e "\e[32mInstalling build tools\e[39m"
 sudo apt install -y git build-essential debhelper pkg-config dh-systemd
