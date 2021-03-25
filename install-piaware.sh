@@ -5,7 +5,12 @@ INSTALL_DIRECTORY=${PWD}
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
 echo -e "\e[32mInstalling build tools\e[39m"
-sudo apt install -y git debhelper dh-systemd
+
+sudo apt install -y git
+sudo apt install -y build-essential
+sudo apt install -y debhelper
+sudo apt install -y pkg-config
+sudo apt install -y dh-systemd
 
 echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
 echo -e "\e[32mInstalling tcl-tls dependencies \e[39m"
