@@ -58,6 +58,7 @@ cd ${INSTALL_DIRECTORY}/piaware_builder/package-buster
 
 if [[ `lsb_release -sc` == "kali-rolling" ]]; then
 sudo sed -i 's/dh-systemd,//' debian/control
+sudo sed -i 's/python3-venv,//' debian/control
 fi
 
 sudo dpkg-buildpackage -b --no-sign 
