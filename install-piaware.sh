@@ -1,11 +1,7 @@
 #!/bin/bash
 
 INSTALL_DIRECTORY=${PWD}
-#if [[ `lsb_release -sc` == "kali-rolling" ]]; then
-#echo -e "\e[32mFor Kali 2021, adding debian Buster repository to get all packages needed\e[39m"
-#sudo echo "deb http://deb.debian.org/debian/ buster main" >> /tmp/deb.list 
-#sudo mv /tmp/deb.list /etc/apt/sources.list.d/
-#fi
+
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
 echo -e "\e[32mInstalling build tools\e[39m"
@@ -13,7 +9,10 @@ sudo apt install -y git debhelper dh-systemd
 
 echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
 echo -e "\e[32mInstalling tcl-tls dependencies \e[39m"
-sudo apt install -y libssl-dev tcl-dev chrpath
+sudo apt install -y libssl-dev
+sudo apt install -y tcl-dev
+sudo apt install -y chrpath
+
 echo -e "\e[32mCloning tcl-tls source code \e[39m"
 
 cd  ${INSTALL_DIRECTORY}
@@ -29,13 +28,17 @@ echo -e "\e[32mInstalling tcl-tls package \e[39m"
 cd ../
 sudo dpkg -i tcl-tls_*.deb
 
-
 echo -e "\e[32mInstalling piaware dependencies \e[39m"
-sudo apt install -y python3-dev python3-venv 
-sudo apt install -y libboost-system-dev libboost-program-options-dev
-sudo apt install -y libboost-regex-dev libboost-filesystem-dev
-sudo apt install -y net-tools tclx8.4 tcllib itcl3
-
+sudo apt install -y python3-dev
+sudo apt install -y python3-venv 
+sudo apt install -y libboost-system-dev
+sudo apt install -y libboost-program-options-dev
+sudo apt install -y libboost-regex-dev
+sudo apt install -y libboost-filesystem-dev
+sudo apt install -y net-tools
+sudo apt install -y tclx8.4
+sudo apt install -y tcllib
+sudo apt install -y itcl3
 
 echo -e "\e[32mCloning piaware source code and building package \e[39m"
 cd ${INSTALL_DIRECTORY}
