@@ -1,30 +1,39 @@
 #!/bin/bash
 INSTALL_DIRECTORY=${PWD}
 
-#if [[ `lsb_release -sc` == "kali-rolling" ]]; then
-#echo -e "\e[32mFor Kali 2021, adding debian Buster repository to get all packages needed\e[39m"
-#sudo echo "deb http://deb.debian.org/debian/ buster main" >> /tmp/deb.list 
-#sudo mv /tmp/deb.list /etc/apt/sources.list.d/
-#fi
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
+
 echo -e "\e[32mInstalling build tools\e[39m"
-sudo apt install -y git build-essential debhelper pkg-config dh-systemd
+sudo apt install -y git
+sudo apt install -y build-essential
+sudo apt install -y debhelper
+sudo apt install -y pkg-config
+sudo apt install -y dh-systemd
 
 echo -e "\e[32mInstalling dependencies \e[39m"
-sudo apt install -y librtlsdr-dev libncurses5-dev lighttpd
-sudo apt install -y libbladerf-dev libhackrf-dev liblimesuite-dev
+sudo apt install -y librtlsdr-dev
+sudo apt install -y libncurses5-dev
+sudo apt install -y lighttpd
+sudo apt install -y libbladerf-dev
+sudo apt install -y libhackrf-dev
+sudo apt install -y liblimesuite-dev
+
 sudo systemctl enable lighttpd
 sudo systemctl restart lighttpd
 
 echo -e "\e[32mCloning dump1090-fa source code\e[39m"
-
 cd ${INSTALL_DIRECTORY}
 git clone https://github.com/flightaware/dump1090
 
 cd ${INSTALL_DIRECTORY}/dump1090
 git fetch --all
 git reset --hard origin/master
+
+if [[ `lsb_release -sc` == "kali-rolling" ]]; then
+sudo sed -i 's/dh-systemd,//' debian/control
+fi
+
 echo -e "\e[32mBuilding dump1090-fa package\e[39m"
 sudo dpkg-buildpackage -b --no-sign
 
