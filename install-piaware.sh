@@ -50,6 +50,11 @@ VER=$(git describe --tags | sed 's/^v//')
 echo -e "\e[32mBuilding the piaware package \e[39m"
 sudo ./sensible-build.sh buster
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-buster
+
+if [[ `lsb_release -sc` == "kali-rolling" ]]; then
+sudo sed -i 's/dh-systemd,//' debian/control
+fi
+
 sudo dpkg-buildpackage -b --no-sign 
 
 echo -e "\e[32mInstalling piaware package\e[39m"
