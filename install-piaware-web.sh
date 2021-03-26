@@ -1,15 +1,13 @@
 #!/bin/bash
 
 INSTALL_DIRECTORY=${PWD}
-#if [[ `lsb_release -sc` == "kali-rolling" ]]; then
-#echo -e "\e[32mFor Kali 2021, adding debian Buster repository to get all packages needed\e[39m"
-#sudo echo "deb http://deb.debian.org/debian/ buster main" >> /tmp/deb.list 
-#sudo mv /tmp/deb.list /etc/apt/sources.list.d/
-#fi
+
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
 echo -e "\e[32mInstalling build tools\e[39m"
-sudo apt install -y git debhelper dh-systemd
+sudo apt install -y git
+sudo apt install -y debhelper
+sudo apt install -y dh-systemd
 
 echo -e "\e[32mCloning piaware-web source code \e[39m"
 cd  ${INSTALL_DIRECTORY}
@@ -19,6 +17,9 @@ git fetch --all
 git reset --hard origin/master
 VER=$(git describe --tags | sed 's/^v//')
 echo -e "\e[32mbuilding piaware-web package \e[39m"
+if [[ `lsb_release -sc` == "kali-rolling" ]]; then
+sudo sed -i 's/dh-systemd,//' debian/control
+fi
 sudo dpkg-buildpackage -b --no-sign
 echo -e "\e[32mInstalling piaware-web package \e[39m"
 cd ../
