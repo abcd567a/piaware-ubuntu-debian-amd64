@@ -1,17 +1,18 @@
 #!/bin/bash
 INSTALL_DIRECTORY=${PWD}
-#if [[ `lsb_release -sc` == "kali-rolling" ]]; then
-#echo -e "\e[32mFor Kali 2021, adding debian Buster repository to get all packages needed\e[39m"
-#sudo echo "deb http://deb.debian.org/debian/ buster main" >> /tmp/deb.list 
-#sudo mv /tmp/deb.list /etc/apt/sources.list.d/
-#fi
+
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
 echo -e "\e[32mInstalling build tools\e[39m"
-sudo apt install -y git build-essential debhelper pkg-config dh-systemd
+sudo apt install -y git
+sudo apt install -y build-essential
+sudo apt install -y debhelper
+sudo apt install -y pkg-config
+sudo apt install -y dh-systemd
 
 echo -e "\e[32mInstalling dependencies \e[39m"
-sudo apt install -y libsoapysdr-dev soapysdr-module-rtlsdr 
+sudo apt install -y libsoapysdr-dev
+sudo apt install -y soapysdr-module-rtlsdr 
 
 echo -e "\e[32mCloning dump978-fa source code\e[39m"
 
@@ -23,6 +24,11 @@ git fetch --all
 git reset --hard origin/master
 VER=$(git describe --tags | sed 's/^v//')
 echo -e "\e[32mBuilding dump978-fa package\e[39m"
+
+if [[ `lsb_release -sc` == "kali-rolling" ]]; then
+sudo sed -i 's/dh-systemd,//' debian/control
+fi
+
 sudo dpkg-buildpackage -b --no-sign
 
 echo -e "\e[32mInstalling dump978-fa and SkyAware978 \e[39m"
