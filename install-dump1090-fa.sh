@@ -30,6 +30,11 @@ cd ${INSTALL_DIRECTORY}/dump1090
 git fetch --all
 git reset --hard origin/master
 
+if [[ `uname -m` == "aarch64" || `uname -m` == "armv7l" ]]; then
+git fetch --all
+git reset --hard origin/dev
+fi
+
 if [[ `lsb_release -sc` == "kali-rolling" ]]; then
 sudo sed -i 's/dh-systemd,//' debian/control
 fi
@@ -37,9 +42,9 @@ fi
 echo -e "\e[32mBuilding dump1090-fa package\e[39m"
 sudo dpkg-buildpackage -b --no-sign
 
-
 echo -e "\e[32mInstalling dump1090-fa \e[39m"
-VER=$(git describe --tags | sed 's/^v//')
+#VER=$(git describe --tags | sed 's/^v//')
+VER=$(grep "Version:" debian/dump1090-fa/DEBIAN/control | sed 's/^Version: //')
 cd ../
 sudo dpkg -i dump1090-fa_${VER}_*.deb
 
