@@ -31,8 +31,13 @@ git fetch --all
 git reset --hard origin/master
 
 if [[ `uname -m` == "aarch64" || `uname -m` == "armv7l" ]]; then
-git fetch --all
-git reset --hard origin/dev
+    if [[ `lsb_release -si` == "Debian" ]]; then
+        echo "Using mater branch"
+    else
+        echo "Using development branch"
+        git fetch --all
+        git reset --hard origin/dev
+    fi
 fi
 
 if [[ `lsb_release -sc` == "kali-rolling" ]]; then
