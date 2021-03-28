@@ -32,7 +32,7 @@ git reset --hard origin/master
 
 if [[ `uname -m` == "aarch64" || `uname -m` == "armv7l" ]]; then
     if [[ `lsb_release -si` == "Debian" ]]; then
-        echo "Using mater branch"
+        echo "Using master branch"
     else
         echo "Using development branch"
         git fetch --all
