@@ -47,9 +47,10 @@ For 978 Mhz dongle : use serial # 00000978 </br></br>
 
 ### (4.3) - Configure dump1090-fa & dump978-fa to use dongles of assigned serial numbers </br>
 ```
-sudo sed -i 's/--device-index 0/--device-index 00001090/' /etc/default/dump1090-fa   
-sudo sed -i 's/driver=rtlsdr/driver=rtlsdr,serial=00000978/' /etc/default/dump978-fa   
+sudo sed -i 's/--device-index [^ ]* /--device-index 00001090 /' /etc/default/dump1090-fa 
+sudo sed -i 's/driver=rtlsdr[^ ]* /driver=rtlsdr,serial=00000978 /' /etc/default/dump978-fa
 ```
+
 ### (4.4) - Reboot so that dump1090-fa & dump978-fa can pick their assigned dongles at boot </br>
 
 `sudo reboot `   </br>
