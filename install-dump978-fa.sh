@@ -13,6 +13,10 @@ sudo apt install -y dh-systemd
 echo -e "\e[32mInstalling dependencies \e[39m"
 sudo apt install -y libsoapysdr-dev
 sudo apt install -y soapysdr-module-rtlsdr 
+sudo apt install -y libboost-system-dev
+sudo apt install -y libboost-program-options-dev
+sudo apt install -y libboost-regex-dev
+sudo apt install -y libboost-filesystem-dev
 
 echo -e "\e[32mCloning dump978-fa source code\e[39m"
 
