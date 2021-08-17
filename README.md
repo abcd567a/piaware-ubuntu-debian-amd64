@@ -1,7 +1,7 @@
 ## Automated Installation of piaware 5.0, dump1090-fa 5.0, and dump978-fa 5.0 (by building packages from source code), on following OS: </br>
 
 ### (1) Ubuntu 20 - amd64 </br>
-### (2) Debian 10 - amd64 </br>
+### (2) Debian 10 & 11 - amd64 </br>
 ### (3) Kali-linux 2020 - amd64 </br>
 ### (4) On RPI Model 4 (32-bit & 64-bit) Raspbian, Ubuntu, and Kali  (armv7l & aarch64)
 </br>
