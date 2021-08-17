@@ -40,9 +40,9 @@ if [[ `uname -m` == "aarch64" || `uname -m` == "armv7l" ]]; then
     fi
 fi
 
-if [[ `lsb_release -sc` == "kali-rolling" ]]; then
+#if [[ `lsb_release -sc` == "kali-rolling" ]]; then
 sudo sed -i 's/dh-systemd,//' debian/control
-fi
+#fi
 
 echo -e "\e[32mBuilding dump1090-fa package\e[39m"
 sudo dpkg-buildpackage -b --no-sign
