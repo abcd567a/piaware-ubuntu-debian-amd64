@@ -31,9 +31,10 @@ git fetch --all
 git reset --hard origin/master
 
 if [[ `uname -m` == "aarch64" || `uname -m` == "armv7l" ]]; then
-    if [[ `lsb_release -si` == "Debian" ]]; then
+    VERSION_CODENAME=`grep -oP '(?<=VERSION_CODENAME=)\w+' /etc/os-release`
+    if [[ ${VERSION_CODENAME} == "buster" ]]; then
         echo "Using master branch"
-    else
+    elif [[ ${VERSION_CODENAME} == "bullseye" ]]; then
         echo "Using development branch"
         git fetch --all
         git reset --hard origin/dev
