@@ -28,7 +28,7 @@ git clone https://github.com/flightaware/dump1090
 
 cd ${INSTALL_DIRECTORY}/dump1090
 git fetch --all
-git reset --hard origin/dev
+git reset --hard origin/master
 sudo sed -i 's/dh-systemd,//' debian/control
 
 echo -e "\e[32mBuilding dump1090-fa package\e[39m"
