@@ -25,7 +25,7 @@ git clone https://github.com/flightaware/dump978
 
 cd ${INSTALL_DIRECTORY}/dump978
 git fetch --all
-git reset --hard origin/dev
+git reset --hard origin/master
 #VER=$(git describe --tags | sed 's/^v//')
 echo -e "\e[32mBuilding dump978-fa package\e[39m"
 sudo sed -i 's/dh-systemd,//' debian/control
