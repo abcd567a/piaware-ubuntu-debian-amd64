@@ -50,7 +50,7 @@ cd ${INSTALL_DIRECTORY}
 git clone http://github.com/flightaware/piaware_builder
 cd ${INSTALL_DIRECTORY}/piaware_builder
 git fetch --all
-git reset --hard origin/dev
+git reset --hard origin/master
 #VER=$(git describe --tags | sed 's/^v//')
 
 echo -e "\e[32mBuilding the piaware package \e[39m"
