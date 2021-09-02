@@ -15,12 +15,13 @@ git clone https://github.com/flightaware/piaware-web
 cd  ${INSTALL_DIRECTORY}/piaware-web
 git fetch --all
 git reset --hard origin/master
-VER=$(git describe --tags | sed 's/^v//')
+#VER=$(git describe --tags | sed 's/^v//')
 echo -e "\e[32mbuilding piaware-web package \e[39m"
 #if [[ `lsb_release -sc` == "kali-rolling" ]]; then
 sudo sed -i 's/dh-systemd,//' debian/control
 #fi
 sudo dpkg-buildpackage -b --no-sign
+VER=$(grep "Version:" debian/piaware-web/DEBIAN/control | sed 's/^Version: //')
 echo -e "\e[32mInstalling piaware-web package \e[39m"
 cd ../
 sudo dpkg -i piaware-web_${VER}_all.deb
