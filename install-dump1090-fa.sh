@@ -30,16 +30,16 @@ cd ${INSTALL_DIRECTORY}/dump1090
 git fetch --all
 git reset --hard origin/master
 
-if [[ `uname -m` == "aarch64" || `uname -m` == "armv7l" ]]; then
-    VERSION_CODENAME=`grep -oP '(?<=VERSION_CODENAME=)\w+' /etc/os-release`
-    if [[ ${VERSION_CODENAME} == "buster" ]]; then
-        echo "Using master branch"
-    elif [[ ${VERSION_CODENAME} == "bullseye" ]]; then
-        echo "Using development branch"
-        git fetch --all
-        git reset --hard origin/dev
-    fi
-fi
+#if [[ `uname -m` == "aarch64" || `uname -m` == "armv7l" ]]; then
+#    VERSION_CODENAME=`grep -oP '(?<=VERSION_CODENAME=)\w+' /etc/os-release`
+#    if [[ ${VERSION_CODENAME} == "buster" ]]; then
+#        echo "Using master branch"
+#    elif [[ ${VERSION_CODENAME} == "bullseye" ]]; then
+#        echo "Using development branch"
+#        git fetch --all
+#        git reset --hard origin/dev
+#    fi
+#fi
 
 #if [[ `lsb_release -sc` == "kali-rolling" ]]; then
 sudo sed -i 's/dh-systemd,//' debian/control
