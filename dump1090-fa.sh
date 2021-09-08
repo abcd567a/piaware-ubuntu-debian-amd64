@@ -35,7 +35,7 @@ echo -e "\e[32mBuilding dump1090-fa package\e[39m"
 sudo dpkg-buildpackage -b --no-sign
 VER=$(grep "Version:" debian/dump1090-fa/DEBIAN/control | sed 's/^Version: //')
 
-echo -e "\e[32mInstalling dump1090-fa~dev\e[39m"
+echo -e "\e[32mInstalling dump1090-fa\e[39m"
 cd ../
 sudo dpkg -i dump1090-fa_${VER}_*.deb
 
