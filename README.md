@@ -1,4 +1,4 @@
-## Automated Installation of piaware 6.0, dump1090-fa 6.1, and dump978-fa 6.1 (by building packages from source code), on following OS: </br>
+## Automated Installation of piaware 6.1, dump1090-fa 6.1, and dump978-fa 6.1 (by building packages from source code), on following OS: </br>
 
 ### (1) Ubuntu 20 - amd64 </br>
 ### (2) Debian 10 & 11 - amd64 </br>
