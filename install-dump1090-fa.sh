@@ -43,9 +43,9 @@ cd ${INSTALL_DIRECTORY}/dump1090/package-bullseye
 sudo dpkg-buildpackage -b --no-sign
 VER=$(grep "Version:" debian/dump1090-fa/DEBIAN/control | sed 's/^Version: //')
 
-#echo -e "\e[32mInstalling dump1090-fa\e[39m"
-#cd ../
-#sudo dpkg -i dump1090-fa_${VER}_*.deb
+echo -e "\e[32mInstalling dump1090-fa\e[39m"
+cd ../
+sudo dpkg -i dump1090-fa_${VER}_*.deb
 
 sudo systemctl enable dump1090-fa
 sudo systemctl restart dump1090-fa
