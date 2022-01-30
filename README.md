@@ -1,9 +1,9 @@
-## Automated Installation of piaware 6.1, dump1090-fa 6.1, and dump978-fa 6.1 (by building packages from source code), on following OS: </br>
+## Automated Installation of piaware 7.1, dump1090-fa 7.1, and dump978-fa 7.1 (by building packages from source code), on following OS: </br>
 
 ### (1) Ubuntu 20 - amd64 </br>
-### (2) Debian 10 & 11 - amd64 </br>
-### (3) Kali-linux 2020 - amd64 </br>
-### (4) On RPI Model 4 (32-bit & 64-bit) Raspbian, Ubuntu, and Kali  (armv7l & aarch64)
+### (2) Debian 11 - amd64 </br>
+### (3) Kali-linux 2021 - amd64 </br>
+### (4) On RPI Model 3 & 4 (32-bit & 64-bit) Raspbian, Ubuntu, and Kali  (armv7l & aarch64)
 </br>
 
 ## (1) DUMP1090-FA
