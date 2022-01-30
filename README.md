@@ -1,4 +1,4 @@
-## Automated Installation of piaware 7.1, dump1090-fa 7.1, and dump978-fa 7.1 (by building packages from source code), on following OS: </br>
+## Automated Installation of piaware 7.1, dump1090-fa 7.1, piaware-web 7.1, and dump978-fa 7.1 (by building packages from source code), on following OS: </br>
 
 ### (1) Ubuntu 20 - amd64 </br>
 ### (2) Debian 11 - amd64 </br>
