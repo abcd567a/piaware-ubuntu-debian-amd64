@@ -3,7 +3,7 @@
 ### (1) Ubuntu 20 - amd64 </br>
 ### (2) Debian 11 - amd64 </br>
 ### (3) Kali-linux 2021 - amd64 </br>
-### (4) On RPI Model 3 & 4 (32-bit & 64-bit) Raspbian, Ubuntu, and Kali  (armv7l & aarch64)
+### (4) On RPI Model 3 & 4 (32-bit & 64-bit armv7l & aarch64) Raspberry Pi OS Bullseye, DietPi OS Bullseye, Ubuntu-20 for RPi, and Kali-2021 for RPi 
 </br>
 
 ## (1) DUMP1090-FA
