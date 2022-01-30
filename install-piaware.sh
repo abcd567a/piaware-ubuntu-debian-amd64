@@ -46,7 +46,7 @@ echo -e "\e[32mBuilding the piaware package \e[39m"
 sudo ./sensible-build.sh bullseye
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-bullseye
 
-sudo dpkg-buildpackage -b --no-sign 
+sudo dpkg-buildpackage -b -d --no-sign 
 VER=$(grep "Version:" debian/piaware/DEBIAN/control | sed 's/^Version: //')
 
 echo -e "\e[32mInstalling piaware package\e[39m"
