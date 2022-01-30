@@ -23,7 +23,7 @@ echo -e "\e[32mInstalling dependencies \e[39m"
 ##Depends:
 sudo apt install -y adduser
 sudo apt install -y soapysdr-module-rtlsdr
-sudo apt install -y skyaware978
+#sudo apt install -y skyaware978
 
 echo -e "\e[32mCloning dump978-fa source code\e[39m"
 
