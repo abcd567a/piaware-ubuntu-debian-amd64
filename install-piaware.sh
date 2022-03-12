@@ -25,6 +25,27 @@ sudo apt install -y libboost-regex-dev
 sudo apt install -y libboost-filesystem-dev
 sudo apt install -y patchelf
 
+echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
+echo -e "\e[32mInstalling tcl-tls dependencies \e[39m"
+sudo apt install -y libssl-dev
+sudo apt install -y tcl-dev
+sudo apt install -y chrpath
+
+echo -e "\e[32mCloning tcl-tls source code \e[39m"
+
+cd  ${INSTALL_DIRECTORY}
+git clone https://github.com/flightaware/tcltls-rebuild
+cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
+git fetch --all
+git reset --hard origin/master
+echo -e "\e[32mbuilding tcl-tls package \e[39m"
+./prepare-build.sh bullseye
+cd package-bullseye
+sudo dpkg-buildpackage -b --no-sign
+echo -e "\e[32mInstalling tcl-tls package \e[39m"
+cd ../
+#sudo dpkg -i tcl-tls_*.deb
+
 echo -e "\e[32mInstalling piaware dependencies \e[39m"
 
 #Depends:
@@ -33,7 +54,6 @@ sudo apt install -y iproute2
 sudo apt install -y tclx8.4
 sudo apt install -y tcl8.6
 sudo apt install -y tcllib
-sudo apt install -y tcl-tls
 sudo apt install -y itcl3
 
 echo -e "\e[32mCloning piaware source code and building package \e[39m"
