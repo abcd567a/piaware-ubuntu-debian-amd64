@@ -44,7 +44,7 @@ cd package-bullseye
 sudo dpkg-buildpackage -b --no-sign
 echo -e "\e[32mInstalling tcl-tls package \e[39m"
 cd ../
-#sudo dpkg -i tcl-tls_*.deb
+sudo dpkg -i tcl-tls_*.deb
 
 echo -e "\e[32mInstalling piaware dependencies \e[39m"
 
