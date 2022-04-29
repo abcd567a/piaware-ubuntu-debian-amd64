@@ -51,7 +51,7 @@ sudo systemctl enable dump1090-fa
 sudo systemctl restart dump1090-fa
 
 echo ""
-echo -e "\e[32mDUMP1090-FA~DEV INSTALLATION COMPLETED \e[39m"
+echo -e "\e[32mDUMP1090-FA INSTALLATION COMPLETED \e[39m"
 echo -e "\e[31mREBOOT Computer \e[39m"
 echo -e "\e[31mREBOOT Computer \e[39m"
 echo -e "\e[31mREBOOT Computer \e[39m"
