@@ -8,22 +8,22 @@
 
 ## (1) DUMP1090-FA
 Copy-paste following command in SSH console and press Enter key. The script will install dump1090-fa. </br></br>
-`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu20-amd64/master/install-dump1090-fa.sh)" `</br></br>
+`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-dump1090-fa.sh)" `</br></br>
 
 
 ## (2) PIAWARE 
 Copy-paste following command in SSH console and press Enter key. The script will install piaware. </br></br>
-`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu20-amd64/master/install-piaware.sh)" `</br></br>
+`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-piaware.sh)" `</br></br>
 
 ## (3) PIAWARE-WEB
 Copy-paste following command in SSH console and press Enter key. The script will install piaware-web. </br></br>
-`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu20-amd64/master/install-piaware-web.sh)" `</br></br>
+`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-piaware-web.sh)" `</br></br>
 
 
 ## (4) DUMP978-FA (For USA ONLY. Requires 2nd Dongle)
 If you want to receive both ES1090 and UAT978, then two dongles are required, one for 1090 MHz and other for 978 MHz. </br>
 ### (4.1) Copy-paste following command in SSH console and press Enter key. The script will install dump978-fa and skyaware978: </br>
-`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu20-amd64/master/install-dump978-fa.sh)" `</br></br>
+`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-dump978-fa.sh)" `</br></br>
 
 ### (4.2) Serialize dongles as follows </br>
 If you want to receive both ES1090 and UAT978, then two dongles are required, one for 1090 MHz and other for 978 MHz. In this case you will have to serialize dongles so that correct dongle+antenna sets are used by dump1090-fa and dump978-fa. </br></br>
