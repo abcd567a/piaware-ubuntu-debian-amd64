@@ -4,6 +4,24 @@ INSTALL_DIRECTORY=${PWD}
 
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
+
+## Detect OS Version
+OS_VERSION=`lsb_release -sc`
+echo -e "\e[35mDETECTED OS VERSION" ${OS_VERSION} "\e[39m"
+
+if [[ ${OS_VERSION} == bionic ]]; then
+  OS_VERSION=stretch
+  sudo apt install -y devscripts
+elif [[ ${OS_VERSION} == focal ]]; then
+  OS_VERSION=buster
+elif [[ ${OS_VERSION} == jammy ]]; then
+  OS_VERSION=bullseye
+elif [[ ${OS_VERSION} == bookworm ]]; then
+  OS_VERSION=bullseye
+fi
+
+echo -e "\e[36mBUILDING PACKAGE USING VER" ${OS_VERSION} "\e[39m"
+
 echo -e "\e[32mInstalling Build tools & Build dependencies\e[39m"
 
 #Build-Tools
@@ -39,8 +57,8 @@ cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
-./prepare-build.sh bullseye
-cd package-bullseye
+./prepare-build.sh ${OS_VERSION}
+cd package-${OS_VERSION}
 sudo dpkg-buildpackage -b --no-sign
 echo -e "\e[32mInstalling tcl-tls package \e[39m"
 cd ../
@@ -63,18 +81,18 @@ cd ${INSTALL_DIRECTORY}/piaware_builder
 git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mBuilding the piaware package \e[39m"
-sudo ./sensible-build.sh bullseye
-cd ${INSTALL_DIRECTORY}/piaware_builder/package-bullseye
+sudo ./sensible-build.sh ${OS_VERSION}
+cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_VERSION}
 
 sudo sed -i 's/python3-dev(>=3.9)/python3-dev/' debian/control
 sudo sed -i 's/tcl-tls (>= 1.7.22-2)/tcl-tls/' debian/control
 
 sudo dpkg-buildpackage -b --no-sign 
-VER=$(grep "Version:" debian/piaware/DEBIAN/control | sed 's/^Version: //')
+PIAWARE_VER=$(grep "Version:" debian/piaware/DEBIAN/control | sed 's/^Version: //')
 
 echo -e "\e[32mInstalling piaware package\e[39m"
 cd ../
-sudo dpkg -i piaware_${VER}_*.deb
+sudo dpkg -i piaware_${PIAWARE_VER}_*.deb
 
 sudo systemctl enable piaware
 sudo systemctl restart piaware
