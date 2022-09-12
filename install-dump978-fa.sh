@@ -4,6 +4,24 @@ INSTALL_DIRECTORY=${PWD}
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
 
+## Detect OS Version
+OS_VERSION=`lsb_release -sc`
+echo -e "\e[35mDETECTED OS VERSION" ${OS_VERSION} "\e[39m"
+
+if [[ ${OS_VERSION} == bionic ]]; then
+  OS_VERSION=stretch
+  sudo apt install -y devscripts
+elif [[ ${OS_VERSION} == focal ]]; then
+  OS_VERSION=buster
+elif [[ ${OS_VERSION} == jammy ]]; then
+  OS_VERSION=bullseye
+elif [[ ${OS_VERSION} == bookworm ]]; then
+  OS_VERSION=bullseye
+fi
+
+echo -e "\e[36mBUILDING PACKAGE USING VER" ${OS_VERSION} "\e[39m"
+
+
 echo -e "\e[32mInstalling Build tools and Build dependencies\e[39m"
 
 ##Build-Tools:
@@ -35,18 +53,18 @@ git fetch --all
 git reset --hard origin/master
 
 echo -e "\e[32mBuilding dump978-fa package\e[39m"
-sudo ./prepare-build.sh bullseye
-cd ${INSTALL_DIRECTORY}/dump978/package-bullseye
+sudo ./prepare-build.sh ${OS_VERSION}
+cd ${INSTALL_DIRECTORY}/dump978/package-${OS_VERSION}
 
 sudo dpkg-buildpackage -b --no-sign
-VER=$(grep "Version:" debian/dump978-fa/DEBIAN/control | sed 's/^Version: //')
+DUMP_VER=$(grep "Version:" debian/dump978-fa/DEBIAN/control | sed 's/^Version: //')
 echo -e "\e[32mInstalling dump978-fa and SkyAware978 \e[39m"
 cd ../
-sudo dpkg -i dump978-fa_${VER}_*.deb
+sudo dpkg -i dump978-fa_${DUMP_VER}_*.deb
 sudo systemctl enable dump978-fa
 sudo systemctl restart dump978-fa
 
-sudo dpkg -i skyaware978_${VER}_*.deb
+sudo dpkg -i skyaware978_${DUMP_VER}_*.deb
 sudo systemctl enable skyaware978
 sudo systemctl restart skyaware978
 
