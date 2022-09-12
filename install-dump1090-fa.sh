@@ -11,7 +11,6 @@ echo -e "\e[35mDETECTED OS VERSION" ${OS_VERSION} "\e[39m"
 
 if [[ ${OS_VERSION} == bionic ]]; then
   OS_VERSION=stretch
-  sudo apt install -y devscripts
 elif [[ ${OS_VERSION} == focal ]]; then
   OS_VERSION=buster
 elif [[ ${OS_VERSION} == jammy ]]; then
@@ -25,9 +24,9 @@ echo -e "\e[36mBUILDING PACKAGE USING VER" ${OS_VERSION} "\e[39m"
 echo -e "\e[32mInstalling Build tools and Build dependencies\e[39m"
 
 ##Build-Tools
-if [[ ${OS_VERSION} == stretch ]]; then sudo apt install -y devscripts; fi
 sudo apt install -y git
 sudo apt install -y build-essential
+sudo apt install -y devscripts
 
 ##Build-Depends:
 sudo apt install -y debhelper
