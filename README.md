@@ -2,8 +2,9 @@
 
 ### (1) Ubuntu 18, 20, & 22 - amd64 / x86_64 </br>
 ### (2) Debian 9, 10, & 11 - amd64 / x86_64 </br>
-### (3) Kali-linux 2021 - amd64 </br>
-### (4) On RPI Model 3 & 4 (32-bit & 64-bit / armv7l & aarch64) Raspberry Pi OS Stretch, Buster, & Bullseye, DietPi OS Stretch, Buster, & Bullseye, Ubuntu 18, 20, and 22 for RPi, and Kali 2021 for RPi 
+### (3) Linux Mint 19, 20, & 21 - amd64 / x86_64 </br>
+### (4) Kali-linux 2021 - amd64 </br>
+### (5) On RPI Model 3 & 4 (32-bit & 64-bit / armv7l & aarch64) Raspberry Pi OS Stretch, Buster, & Bullseye, DietPi OS Stretch, Buster, & Bullseye, Ubuntu 18, 20, and 22 for RPi, and Kali 2021 for RPi 
 </br>
 
 ## (1) DUMP1090-FA
