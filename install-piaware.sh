@@ -17,11 +17,11 @@ elif [[ ${OS_VERSION} == jammy ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_VERSION=bullseye
-elif [[ ${OS_VERSION} == vanessa ]]; then
+else
   OS_VERSION=bullseye
 fi
 
-echo -e "\e[36mBUILDING PACKAGE USING VER" ${OS_VERSION} "\e[39m"
+echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 
 echo -e "\e[32mInstalling Build tools & Build dependencies\e[39m"
 
