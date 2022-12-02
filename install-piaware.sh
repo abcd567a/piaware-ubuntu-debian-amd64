@@ -17,6 +17,14 @@ elif [[ ${OS_VERSION} == jammy ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_VERSION=bullseye
+
+elif [[ ${OS_VERSION} == tara || tessa || tina || tricia ]]; then
+  OS_VERSION=stretch
+elif [[ ${OS_VERSION} == una || uma || ulyana || ulyssa ]]; then
+  OS_VERSION=buster
+elif [[ ${OS_VERSION} == vanessa || vera ]]; then
+  OS_VERSION=bullseye
+
 else
   OS_VERSION=bullseye
 fi
