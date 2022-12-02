@@ -9,6 +9,7 @@ sudo apt update
 OS_VERSION=`lsb_release -sc`
 echo -e "\e[35mDETECTED OS VERSION" ${OS_VERSION} "\e[39m"
 
+## UBUNTU
 if [[ ${OS_VERSION} == bionic ]]; then
   OS_VERSION=stretch
 elif [[ ${OS_VERSION} == focal ]]; then
@@ -18,11 +19,12 @@ elif [[ ${OS_VERSION} == jammy ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_VERSION=bullseye
 
-elif [[ ${OS_VERSION} == tara || tessa || tina || tricia ]]; then
+## LINUX MINT
+elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
   OS_VERSION=stretch
-elif [[ ${OS_VERSION} == una || uma || ulyana || ulyssa ]]; then
+elif [[ ${OS_VERSION} == una || ${OS_VERSION} == uma || ${OS_VERSION} == ulyana || ${OS_VERSION} == ulyssa ]]; then
   OS_VERSION=buster
-elif [[ ${OS_VERSION} == vanessa || vera ]]; then
+elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera ]]; then
   OS_VERSION=bullseye
 
 else
