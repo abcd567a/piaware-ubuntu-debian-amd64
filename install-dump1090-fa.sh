@@ -29,7 +29,9 @@ elif [[ ${OS_VERSION} == focal ]]; then
   OS_VERSION=buster
 elif [[ ${OS_VERSION} == jammy ]]; then
   OS_VERSION=bullseye
-
+elif [[ ${OS_VERSION} == kinetic ]]; then
+  OS_VERSION=bullseye
+  
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
   OS_VERSION=stretch
