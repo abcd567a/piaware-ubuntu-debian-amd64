@@ -90,6 +90,7 @@ cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
+sudo mv package-${OS_VERSION} package-${OS_VERSION}-old
 ./prepare-build.sh ${OS_VERSION}
 cd package-${OS_VERSION}
 sudo dpkg-buildpackage -b --no-sign
@@ -114,6 +115,7 @@ cd ${INSTALL_DIRECTORY}/piaware_builder
 git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mBuilding the piaware package \e[39m"
+sudo mv package-${OS_VERSION} package-${OS_VERSION}-old
 sudo ./sensible-build.sh ${OS_VERSION}
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_VERSION}
 
