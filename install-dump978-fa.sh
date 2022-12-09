@@ -85,7 +85,7 @@ git fetch --all
 git reset --hard origin/master
 
 echo -e "\e[32mBuilding dump978-fa package\e[39m"
-sudo mv package-${OS_VERSION} package-${OS_VERSION}-old
+sudo mv package-${OS_VERSION} package-${OS_VERSION}-old-$RANDOM
 sudo ./prepare-build.sh ${OS_VERSION}
 cd ${INSTALL_DIRECTORY}/dump978/package-${OS_VERSION}
 
