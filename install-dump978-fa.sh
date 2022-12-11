@@ -3,6 +3,7 @@ INSTALL_DIRECTORY=${PWD}
 
 echo -e "\e[32mUpdating\e[39m"
 sudo apt update
+sudo apt install -y lsb-release
 
 ## Detect OS 
 OS_ID=`lsb_release -si`
