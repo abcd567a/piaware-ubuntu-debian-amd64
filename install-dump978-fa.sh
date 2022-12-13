@@ -79,6 +79,7 @@ sudo apt install -y soapysdr-module-rtlsdr
 echo -e "\e[32mCloning dump978-fa source code\e[39m"
 
 cd ${INSTALL_DIRECTORY}
+sudo mv dump978 dump978-old-$RANDOM
 git clone https://github.com/flightaware/dump978
 
 cd ${INSTALL_DIRECTORY}/dump978
@@ -86,7 +87,6 @@ git fetch --all
 git reset --hard origin/master
 
 echo -e "\e[32mBuilding dump978-fa package\e[39m"
-sudo mv package-${OS_VERSION} package-${OS_VERSION}-old-$RANDOM
 sudo ./prepare-build.sh ${OS_VERSION}
 cd ${INSTALL_DIRECTORY}/dump978/package-${OS_VERSION}
 
