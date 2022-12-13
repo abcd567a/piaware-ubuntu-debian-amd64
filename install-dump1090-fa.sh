@@ -90,7 +90,6 @@ git fetch --all
 git reset --hard origin/master
 
 echo -e "\e[32mBuilding dump1090-fa package\e[39m"
-sudo mv package-${OS_VERSION} package-${OS_VERSION}-old-$RANDOM
 sudo ./prepare-build.sh ${OS_VERSION}
 cd ${INSTALL_DIRECTORY}/dump1090/package-${OS_VERSION}
 
