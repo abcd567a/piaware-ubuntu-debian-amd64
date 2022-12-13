@@ -86,12 +86,12 @@ sudo apt install -y chrpath
 echo -e "\e[32mCloning tcl-tls source code \e[39m"
 
 cd  ${INSTALL_DIRECTORY}
+sudo mv tcltls-rebuild tcltls-rebuild-old-$RANDOM
 git clone https://github.com/flightaware/tcltls-rebuild
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
-sudo mv package-${OS_VERSION} package-${OS_VERSION}-old-$RANDOM
 ./prepare-build.sh ${OS_VERSION}
 cd package-${OS_VERSION}
 sudo dpkg-buildpackage -b --no-sign
@@ -111,12 +111,12 @@ sudo apt install -y itcl3
 
 echo -e "\e[32mCloning piaware source code and building package \e[39m"
 cd ${INSTALL_DIRECTORY}
+sudo mv piaware_builder piaware_builder-old-$RANDOM
 git clone https://github.com/flightaware/piaware_builder
 cd ${INSTALL_DIRECTORY}/piaware_builder
 git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mBuilding the piaware package \e[39m"
-sudo mv package-${OS_VERSION} package-${OS_VERSION}-old-$RANDOM
 sudo ./sensible-build.sh ${OS_VERSION}
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_VERSION}
 
