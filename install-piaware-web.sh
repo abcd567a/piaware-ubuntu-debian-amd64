@@ -62,13 +62,13 @@ sudo apt install -y debhelper
 
 echo -e "\e[32mCloning piaware-web source code \e[39m"
 cd  ${INSTALL_DIRECTORY}
+sudo mv piaware-web piaware-web-old-$RANDOM
 git clone https://github.com/flightaware/piaware-web
 cd  ${INSTALL_DIRECTORY}/piaware-web
 git fetch --all
 git reset --hard origin/master
 
 echo -e "\e[32mbuilding piaware-web package \e[39m"
-sudo mv package-${OS_VERSION} package-${OS_VERSION}-old-$RANDOM
 sudo ./prepare-build.sh ${OS_VERSION}
 cd  ${INSTALL_DIRECTORY}/piaware-web/package-${OS_VERSION}
 
