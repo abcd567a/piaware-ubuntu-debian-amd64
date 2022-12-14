@@ -74,6 +74,7 @@ echo -e "\e[32mInstalling dependencies \e[39m"
 ##Depends:
 sudo apt install -y adduser
 sudo apt install -y soapysdr-module-rtlsdr
+sudo apt install -y lighttpd
 #sudo apt install -y skyaware978
 
 echo -e "\e[32mCloning dump978-fa source code\e[39m"
@@ -94,13 +95,14 @@ sudo dpkg-buildpackage -b --no-sign
 DUMP_VER=$(grep "Version:" debian/dump978-fa/DEBIAN/control | sed 's/^Version: //')
 echo -e "\e[32mInstalling dump978-fa and SkyAware978 \e[39m"
 cd ../
-sudo dpkg -i dump978-fa_${DUMP_VER}_*.deb
-sudo systemctl enable dump978-fa
-sudo systemctl restart dump978-fa
 
 sudo dpkg -i skyaware978_${DUMP_VER}_*.deb
 sudo systemctl enable skyaware978
 sudo systemctl restart skyaware978
+
+sudo dpkg -i dump978-fa_${DUMP_VER}_*.deb
+sudo systemctl enable dump978-fa
+sudo systemctl restart dump978-fa
 
 sudo piaware-config uat-receiver-type sdr
 sudo systemctl restart piaware
