@@ -1,4 +1,4 @@
-## Automated Installation of piaware 8.1, dump1090-fa 8.1, piaware-web 8.1, and dump978-fa 8.1 (by building packages from source code), on following OS: </br>
+## Automated Installation of piaware 8.2, dump1090-fa 8.2, piaware-web 8.2, and dump978-fa 8.2 (by building packages from source code), on following OS: </br>
 
 ### (1) Ubuntu 18, 20, & 22 - amd64 / x86_64 </br>
 ### (2) Debian 9, 10, & 11 - amd64 / x86_64 </br>
