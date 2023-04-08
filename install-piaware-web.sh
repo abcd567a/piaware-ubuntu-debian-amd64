@@ -30,7 +30,9 @@ elif [[ ${OS_VERSION} == focal ]]; then
   OS_VERSION=buster
 elif [[ ${OS_VERSION} == jammy ]]; then
   OS_VERSION=bullseye
-  elif [[ ${OS_VERSION} == kinetic ]]; then
+elif [[ ${OS_VERSION} == kinetic ]]; then
+  OS_VERSION=bullseye
+elif [[ ${OS_VERSION} == lunar ]]; then
   OS_VERSION=bullseye
 
 ## LINUX MINT
@@ -45,6 +47,8 @@ elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera ]]; then
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2021 ]]; then
   OS_VERSION=buster
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2022 ]]; then
+  OS_VERSION=bullseye
+elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2023 ]]; then
   OS_VERSION=bullseye
 
 else
