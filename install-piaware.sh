@@ -36,9 +36,6 @@ elif [[ ${OS_VERSION} == kinetic ]]; then
 elif [[ ${OS_VERSION} == lunar ]]; then
   sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian-12.sh)"
   exit 0
-elif [[ ${OS_VERSION} == mythic ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian-12.sh)"
-  exit 0
 
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
