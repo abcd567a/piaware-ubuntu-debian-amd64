@@ -21,7 +21,9 @@ elif [[ ${OS_VERSION} == buster ]]; then
 elif [[ ${OS_VERSION} == bullseye ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == bookworm ]]; then
-  OS_VERSION=bullseye
+  #OS_VERSION=bullseye
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian-12.sh)"
+  exit 0
 
 ## UBUNTU
 elif [[ ${OS_VERSION} == bionic ]]; then
@@ -31,7 +33,9 @@ elif [[ ${OS_VERSION} == focal ]]; then
 elif [[ ${OS_VERSION} == jammy ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == kinetic ]]; then
-  OS_VERSION=bullseye
+  #OS_VERSION=bullseye
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian-12.sh)"
+  exit 0
 
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
@@ -47,7 +51,9 @@ elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2021 ]]; then
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2022 ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2023 ]]; then
-  OS_VERSION=bullseye
+  #OS_VERSION=bullseye
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian-12.sh)"
+  exit 0
 
 else
 #  OS_VERSION=bullseye
