@@ -49,7 +49,6 @@ elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2021 ]]; then
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2022 ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2023 ]]; then
-  #OS_VERSION=bullseye
   sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian-12.sh)"
   exit 0
 
