@@ -33,7 +33,8 @@ elif [[ ${OS_VERSION} == focal ]]; then
 elif [[ ${OS_VERSION} == jammy ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == kinetic ]]; then
-  #OS_VERSION=bullseye
+  OS_VERSION=bullseye
+elif [[ ${OS_VERSION} == mythic ]]; then
   sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian-12.sh)"
   exit 0
 
