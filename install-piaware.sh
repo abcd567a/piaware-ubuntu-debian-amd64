@@ -29,9 +29,7 @@ elif [[ ${OS_VERSION} == bionic ]]; then
   OS_VERSION=stretch
 elif [[ ${OS_VERSION} == focal ]]; then
   OS_VERSION=buster
-elif [[ ${OS_VERSION} == jammy ]]; then
-  OS_VERSION=bullseye
-elif [[ ${OS_VERSION} == kinetic ]]; then
+elif [[ ${OS_VERSION} == jammy || ${OS_VERSION} == kinetic ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == lunar ]]; then
   sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian-12.sh)"
