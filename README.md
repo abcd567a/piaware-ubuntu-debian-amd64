@@ -1,9 +1,9 @@
 ## Automated Installation of piaware 8.2, dump1090-fa 8.2, piaware-web 8.2, and dump978-fa 8.2 (by building packages from source code), on following OS: </br>
 
-### (1) Ubuntu 18, 20, & 22 - amd64 / x86_64 </br>
-### (2) Debian 9, 10, & 11 - amd64 / x86_64 </br>
+### (1) Ubuntu 18, 20, 22, & 23 - amd64 / x86_64 </br>
+### (2) Debian 9, 10, 11, & 12 - amd64 / x86_64 </br>
 ### (3) Linux Mint 19, 20, & 21 - amd64 / x86_64 </br>
-### (4) Kali-linux 2021 & 2022 - amd64 </br>
+### (4) Kali-linux 2021, 2022, & 2023 - amd64 </br>
 ### (5) On RPI Model 3 & 4 (32-bit & 64-bit / armv7l & aarch64) Raspberry Pi OS Stretch, Buster, & Bullseye, DietPi OS Stretch, Buster, & Bullseye, Ubuntu 18, 20, and 22 for RPi, and Kali 2021 for RPi 
 </br>
 
