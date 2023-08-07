@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+trap 'echo "[ERROR] Error in line $LINENO when executing: $BASH_COMMAND"' ERR
 
 INSTALL_DIRECTORY=${PWD}
 
@@ -88,10 +90,15 @@ sudo apt install -y libssl-dev
 sudo apt install -y tcl-dev
 sudo apt install -y chrpath
 
-echo -e "\e[32mCloning tcl-tls source code \e[39m"
-
 cd  ${INSTALL_DIRECTORY}
+
+if [[ -d tcltls-rebuild ]];
+then
+echo -e "\e[32mRenaming existing tcltls-rebuild folder by adding prefix \"old\" \e[39m"
 sudo mv tcltls-rebuild tcltls-rebuild-old-$RANDOM
+fi
+
+echo -e "\e[32mCloning tcl-tls source code \e[39m"
 git clone https://github.com/flightaware/tcltls-rebuild
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 git fetch --all
@@ -114,9 +121,15 @@ sudo apt install -y tcl8.6
 sudo apt install -y tcllib
 sudo apt install -y itcl3
 
-echo -e "\e[32mCloning piaware source code and building package \e[39m"
 cd ${INSTALL_DIRECTORY}
+
+if [[ -d piaware_builder ]];
+then
+echo -e "\e[32mRenaming existing piaware_builder folder by adding prefix \"old\" \e[39m"
 sudo mv piaware_builder piaware_builder-old-$RANDOM
+fi
+
+echo -e "\e[32mCloning piaware source code and building package \e[39m"
 git clone https://github.com/flightaware/piaware_builder
 cd ${INSTALL_DIRECTORY}/piaware_builder
 git fetch --all
@@ -125,8 +138,8 @@ echo -e "\e[32mBuilding the piaware package \e[39m"
 sudo ./sensible-build.sh ${OS_VERSION}
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_VERSION}
 
-sudo sed -i 's/python3-dev(>=3.9)/python3-dev/' debian/control
-sudo sed -i 's/tcl-tls (>= 1.7.22-2)/tcl-tls/' debian/control
+##sudo sed -i 's/python3-dev(>=3.9)/python3-dev/' debian/control
+##sudo sed -i 's/tcl-tls (>= 1.7.22-2)/tcl-tls/' debian/control
 
 sudo dpkg-buildpackage -b --no-sign 
 PIAWARE_VER=$(grep "Version:" debian/piaware/DEBIAN/control | sed 's/^Version: //')
