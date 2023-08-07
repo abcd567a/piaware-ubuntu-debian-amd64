@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+trap 'echo "[ERROR] Error in line $LINENO when executing: $BASH_COMMAND"' ERR
 
 INSTALL_DIRECTORY=${PWD}
 
@@ -84,9 +86,15 @@ sudo apt install -y lighttpd
 sudo systemctl enable lighttpd
 sudo systemctl restart lighttpd
 
-echo -e "\e[32mCloning dump1090-fa source code\e[39m"
 cd ${INSTALL_DIRECTORY}
+
+if [[ -d dump1090 ]];
+then
+echo -e "\e[32mRenaming existing dump1090 folder by adding prefix \"old\" \e[39m"
 sudo mv dump1090 dump1090-old-$RANDOM
+fi
+
+echo -e "\e[32mCloning dump1090-fa source code\e[39m"
 git clone https://github.com/flightaware/dump1090
 
 cd ${INSTALL_DIRECTORY}/dump1090
