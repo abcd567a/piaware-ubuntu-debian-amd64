@@ -8,7 +8,7 @@ echo -e "\e[32mUpdating\e[39m"
 sudo apt update
 sudo apt install -y lsb-release
 
-## Detect OS 
+## Detect OS
 OS_ID=`lsb_release -si`
 OS_RELEASE=`lsb_release -sr`
 OS_VERSION=`lsb_release -sc`
@@ -83,8 +83,12 @@ echo -e "\e[32mInstalling dependencies \e[39m"
 ##Depends:
 sudo apt install -y adduser
 sudo apt install -y lighttpd
+
+if [[ ${OS_ID} == Kali ]];
+then
 sudo systemctl enable lighttpd
 sudo systemctl restart lighttpd
+fi
 
 cd ${INSTALL_DIRECTORY}
 
