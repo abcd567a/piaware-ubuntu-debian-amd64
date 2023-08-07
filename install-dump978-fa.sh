@@ -1,4 +1,7 @@
 #!/bin/bash
+set -e
+trap 'echo "[ERROR] Error in line $LINENO when executing: $BASH_COMMAND"' ERR
+
 INSTALL_DIRECTORY=${PWD}
 
 echo -e "\e[32mUpdating\e[39m"
@@ -81,10 +84,16 @@ sudo apt install -y soapysdr-module-rtlsdr
 sudo apt install -y lighttpd
 #sudo apt install -y skyaware978
 
-echo -e "\e[32mCloning dump978-fa source code\e[39m"
-
 cd ${INSTALL_DIRECTORY}
+
+if [[ -d dump978 ]];
+then
+echo -e "\e[32mRenaming existing dump978 folder by adding prefix \"old\" \e[39m"
 sudo mv dump978 dump978-old-$RANDOM
+fi
+
+echo -e "\e[32mCloning dump978 source code\e[39m"
+
 git clone https://github.com/flightaware/dump978
 
 cd ${INSTALL_DIRECTORY}/dump978
