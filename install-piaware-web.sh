@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+trap 'echo "[ERROR] Error in line $LINENO when executing: $BASH_COMMAND"' ERR
+
 INSTALL_DIRECTORY=${PWD}
 
 echo -e "\e[32mUpdating\e[39m"
@@ -64,9 +67,15 @@ sudo apt install -y git
 sudo apt install -y build-essential
 sudo apt install -y debhelper
 
-echo -e "\e[32mCloning piaware-web source code \e[39m"
 cd  ${INSTALL_DIRECTORY}
+
+if [[ -d piaware-web ]];
+then
+echo -e "\e[32mRenaming existing piaware-web folder by adding prefix \"old\" \e[39m"
 sudo mv piaware-web piaware-web-old-$RANDOM
+fi
+
+echo -e "\e[32mCloning piaware-web source code \e[39m"
 git clone https://github.com/flightaware/piaware-web
 cd  ${INSTALL_DIRECTORY}/piaware-web
 git fetch --all
