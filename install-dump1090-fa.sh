@@ -23,7 +23,8 @@ elif [[ ${OS_VERSION} == buster ]]; then
 elif [[ ${OS_VERSION} == bullseye ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == bookworm ]]; then
-  OS_VERSION=bullseye
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-dump1090-fa-debian-12.sh)"
+  exit 0
 
 ## UBUNTU
 elif [[ ${OS_VERSION} == bionic ]]; then
@@ -35,7 +36,8 @@ elif [[ ${OS_VERSION} == jammy ]]; then
 elif [[ ${OS_VERSION} == kinetic ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == lunar ]]; then
-  OS_VERSION=bullseye
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-dump1090-fa-debian-12.sh)"
+  exit 0
   
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
@@ -51,7 +53,8 @@ elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2021 ]]; then
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2022 ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2023 ]]; then
-  OS_VERSION=bullseye
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-dump1090-fa-debian-12.sh)"
+  exit 0
 
 else
 #  OS_VERSION=bullseye
@@ -64,30 +67,30 @@ echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 echo -e "\e[32mInstalling Build tools and Build dependencies\e[39m"
 
 ##Build-Tools
-sudo apt install -y git
-sudo apt install -y build-essential
-sudo apt install -y devscripts
+apt install -y git
+apt install -y build-essential
+apt install -y devscripts
 
 ##Build-Depends:
-sudo apt install -y debhelper
-sudo apt install -y librtlsdr-dev
-sudo apt install -y libbladerf-dev
-sudo apt install -y libhackrf-dev
-sudo apt install -y liblimesuite-dev
-sudo apt install -y libusb-1.0-0-dev
-sudo apt install -y pkg-config
-sudo apt install -y libncurses5-dev
+apt install -y debhelper
+apt install -y librtlsdr-dev
+apt install -y libbladerf-dev
+apt install -y libhackrf-dev
+apt install -y liblimesuite-dev
+apt install -y libusb-1.0-0-dev
+apt install -y pkg-config
+apt install -y libncurses5-dev
 
 echo -e "\e[32mInstalling dependencies \e[39m"
 
 ##Depends:
-sudo apt install -y adduser
-sudo apt install -y lighttpd
+apt install -y adduser
+apt install -y lighttpd
 
 if [[ ${OS_ID} == Kali ]];
 then
-sudo systemctl enable lighttpd
-sudo systemctl restart lighttpd
+systemctl enable lighttpd
+systemctl restart lighttpd
 fi
 
 cd ${INSTALL_DIRECTORY}
@@ -95,7 +98,7 @@ cd ${INSTALL_DIRECTORY}
 if [[ -d dump1090 ]];
 then
 echo -e "\e[32mRenaming existing dump1090 folder by adding prefix \"old\" \e[39m"
-sudo mv dump1090 dump1090-old-$RANDOM
+mv dump1090 dump1090-old-$RANDOM
 fi
 
 echo -e "\e[32mCloning dump1090-fa source code\e[39m"
@@ -106,18 +109,18 @@ git fetch --all
 git reset --hard origin/master
 
 echo -e "\e[32mBuilding dump1090-fa package\e[39m"
-sudo ./prepare-build.sh ${OS_VERSION}
+./prepare-build.sh ${OS_VERSION}
 cd ${INSTALL_DIRECTORY}/dump1090/package-${OS_VERSION}
 
-sudo dpkg-buildpackage -b --no-sign
+dpkg-buildpackage -b --no-sign
 DUMP_VER=$(grep "Version:" debian/dump1090-fa/DEBIAN/control | sed 's/^Version: //')
 
 echo -e "\e[32mInstalling dump1090-fa\e[39m"
 cd ../
-sudo dpkg -i dump1090-fa_${DUMP_VER}_*.deb
+dpkg -i dump1090-fa_${DUMP_VER}_*.deb
 
-sudo systemctl enable dump1090-fa
-sudo systemctl restart dump1090-fa
+systemctl enable dump1090-fa
+systemctl restart dump1090-fa
 
 echo ""
 echo -e "\e[32mDUMP1090-FA INSTALLATION COMPLETED \e[39m"
