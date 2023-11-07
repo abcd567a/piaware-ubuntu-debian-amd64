@@ -8,6 +8,12 @@
 ### (6) On RPI <ins>Model 5</ins> Raspberry Pi OS Bookworm (32-bit & 64-bit) </br>
 
 ## (1) DUMP1090-FA
+**IMPORTANT NOTE:** </br>
+Raspberry Pi OS Bookworm relesed on 2023-10-10 has broken USB on RPi3 and RPi4, but is OK on RPi5. </br>If you have RPi3 or RPi4, then to fix this bug upgrade kernel to "6.1.58-v8+ #1694" by following command: </br>
+```
+sudo rpi-update
+sudo reboot
+```
 Copy-paste following command in SSH console and press Enter key. The script will install dump1090-fa. </br></br>
 `sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-dump1090-fa.sh)" `</br></br>
 
