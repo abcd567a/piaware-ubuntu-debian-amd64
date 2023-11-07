@@ -1,4 +1,4 @@
-## Automated Installation of latest version of piaware, dump1090-fa, piaware-web, and dump978-fa (by building packages from source code), on following OS: </br>
+## Automated Installation of <ins>_latest version_</ins> of piaware, dump1090-fa, piaware-web, and dump978-fa (by building packages from source code), on following OS: </br>
 
 ### (1) Ubuntu 18, 20, 22, & 23 - amd64 / x86_64 </br>
 ### (2) Debian 9, 10, 11, & 12 - amd64 / x86_64 </br>
