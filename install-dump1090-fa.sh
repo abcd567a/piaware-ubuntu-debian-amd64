@@ -77,6 +77,7 @@ apt install -y liblimesuite-dev
 apt install -y libusb-1.0-0-dev
 apt install -y pkg-config
 apt install -y libncurses5-dev
+apt install -y libsoapysdr-dev
 
 echo -e "\e[32mInstalling dependencies \e[39m"
 
