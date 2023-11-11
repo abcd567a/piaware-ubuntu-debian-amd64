@@ -73,8 +73,9 @@ apt install -y autoconf
 apt install -y python3-dev
 apt install -y python3-venv
 apt install -y python3-setuptools
-apt install -y python3-pip
+apt install -y python3-wheel
 apt install -y python3-build
+apt install -y python3-pip
 apt install -y libz-dev
 apt install -y openssl
 apt install -y libboost-system-dev
