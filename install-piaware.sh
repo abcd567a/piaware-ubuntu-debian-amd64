@@ -104,14 +104,13 @@ cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
-if [[ ${OS_VERSION} == bookworm ]]; then OS_VERSION=bullseye; fi
-./prepare-build.sh ${OS_VERSION}
-cd package-${OS_VERSION}
+if [[ ${OS_VERSION} == bookworm ]]; then SPOOFED_OS_VERSION=bullseye; fi
+./prepare-build.sh ${SPOOFED_OS_VERSION}
+cd package-${SPOOFED_OS_VERSION}
 dpkg-buildpackage -b --no-sign
 echo -e "\e[32mInstalling tcl-tls package \e[39m"
 cd ../
 sudo dpkg -i tcl-tls_*.deb
-OS_VERSION=`lsb_release -sc`
 echo -e "\e[36mBUILDING PIAWARE PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 
 echo -e "\e[32mInstalling piaware dependencies \e[39m"
