@@ -104,10 +104,17 @@ cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 git fetch --all
 git reset --hard origin/master
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
-if [[ ${OS_VERSION} == bookworm ]]; then SPOOFED_OS_VERSION=bullseye; fi
-./prepare-build.sh ${SPOOFED_OS_VERSION}
-cd package-${SPOOFED_OS_VERSION}
-dpkg-buildpackage -b --no-sign
+if [[ ${OS_VERSION} == bookworm ]]; then 
+  SPOOFED_OS_VERSION=bullseye
+  ./prepare-build.sh ${SPOOFED_OS_VERSION}
+  cd package-${SPOOFED_OS_VERSION}
+  dpkg-buildpackage -b --no-sign
+else
+  ./prepare-build.sh ${OS_VERSION}
+  cd package-${OS_VERSION}
+  dpkg-buildpackage -b --no-sign
+fi
+
 echo -e "\e[32mInstalling tcl-tls package \e[39m"
 cd ../
 sudo dpkg -i tcl-tls_*.deb
