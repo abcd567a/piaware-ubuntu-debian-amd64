@@ -75,9 +75,6 @@ autoconf \
 python3-dev \
 python3-venv \
 python3-setuptools \
-python3-wheel \
-python3-build \
-python3-pip \
 libz-dev \
 openssl \
 libboost-system-dev \
@@ -85,6 +82,10 @@ libboost-program-options-dev \
 libboost-regex-dev \
 libboost-filesystem-dev \
 patchelf
+
+if [[ ${OS_VERSION} == bookworm ]]; then
+  apt install -y python3-wheel python3-build python3-pip
+fi
 
 echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
 echo -e "\e[32mInstalling tcl-tls dependencies \e[39m"
