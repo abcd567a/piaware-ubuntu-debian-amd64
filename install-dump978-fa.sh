@@ -64,25 +64,27 @@ echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 echo -e "\e[32mInstalling Build tools and Build dependencies\e[39m"
 
 ##Build-Tools:
-sudo apt install -y git
-sudo apt install -y build-essential
-sudo apt install -y devscripts
+apt install -y \
+git \
+build-essential \
+devscripts
 
 ##Build-Depends:
-sudo apt install -y debhelper
-sudo apt install -y libboost-system-dev
-sudo apt install -y libboost-program-options-dev
-sudo apt install -y libboost-regex-dev
-sudo apt install -y libboost-filesystem-dev
-sudo apt install -y libsoapysdr-dev
+apt install -y \
+debhelper \
+libboost-system-dev \
+libboost-program-options-dev \
+libboost-regex-dev \
+libboost-filesystem-dev \
+libsoapysdr-dev
 
 echo -e "\e[32mInstalling dependencies \e[39m"
 
 ##Depends:
-sudo apt install -y adduser
-sudo apt install -y soapysdr-module-rtlsdr
-sudo apt install -y lighttpd
-#sudo apt install -y skyaware978
+apt install -y \
+adduser \
+soapysdr-module-rtlsdr \
+lighttpd
 
 cd ${INSTALL_DIRECTORY}
 
