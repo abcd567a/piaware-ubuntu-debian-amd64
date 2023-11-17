@@ -62,33 +62,36 @@ echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 echo -e "\e[32mInstalling Build tools & Build dependencies\e[39m"
 
 #Build-Tools
-apt install -y git
-apt install -y build-essential
-apt install -y devscripts
-  
+apt install -y \
+git \
+build-essential \
+devscripts
+
 #Build-Depends: 
-apt install -y debhelper
-apt install -y tcl8.6-dev
-apt install -y autoconf
-apt install -y python3-dev
-apt install -y python3-venv
-apt install -y python3-setuptools
-apt install -y python3-wheel
-apt install -y python3-build
-apt install -y python3-pip
-apt install -y libz-dev
-apt install -y openssl
-apt install -y libboost-system-dev
-apt install -y libboost-program-options-dev
-apt install -y libboost-regex-dev
-apt install -y libboost-filesystem-dev
-apt install -y patchelf
+apt install -y \
+debhelper \
+tcl8.6-dev \
+autoconf \
+python3-dev \
+python3-venv \
+python3-setuptools \
+python3-wheel \
+python3-build \
+python3-pip \
+libz-dev \
+openssl \
+libboost-system-dev \
+libboost-program-options-dev \
+libboost-regex-dev \
+libboost-filesystem-dev \
+patchelf
 
 echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
 echo -e "\e[32mInstalling tcl-tls dependencies \e[39m"
-apt install -y libssl-dev
-apt install -y tcl-dev
-apt install -y chrpath
+apt install -y \
+libssl-dev \
+tcl-dev \
+chrpath
 
 cd  ${INSTALL_DIRECTORY}
 
@@ -122,12 +125,13 @@ echo -e "\e[36mBUILDING PIAWARE PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 echo -e "\e[32mInstalling piaware dependencies \e[39m"
 
 #Depends:
-apt install -y net-tools
-apt install -y iproute2
-apt install -y tclx8.4
-apt install -y tcl8.6
-apt install -y tcllib
-apt install -y itcl3
+apt install -y \
+net-tools \
+iproute2 \
+tclx8.4 \
+tcl8.6 \
+tcllib \
+itcl3
 
 cd ${INSTALL_DIRECTORY}
 
