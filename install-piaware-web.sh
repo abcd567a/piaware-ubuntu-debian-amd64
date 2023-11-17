@@ -6,8 +6,8 @@ trap 'echo "[ERROR] Error in line $LINENO when executing: $BASH_COMMAND"' ERR
 INSTALL_DIRECTORY=${PWD}
 
 echo -e "\e[32mUpdating\e[39m"
-sudo apt update
-sudo apt install -y lsb-release
+apt update
+apt install -y lsb-release
 
 ## Detect OS 
 OS_ID=`lsb_release -si`
@@ -63,9 +63,10 @@ fi
 echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 
 echo -e "\e[32mInstalling build tools\e[39m"
-sudo apt install -y git
-sudo apt install -y build-essential
-sudo apt install -y debhelper
+apt install -y \
+git \
+build-essential \
+debhelper
 
 cd  ${INSTALL_DIRECTORY}
 
@@ -82,16 +83,16 @@ git fetch --all
 git reset --hard origin/master
 
 echo -e "\e[32mbuilding piaware-web package \e[39m"
-sudo ./prepare-build.sh ${OS_VERSION}
+./prepare-build.sh ${OS_VERSION}
 cd  ${INSTALL_DIRECTORY}/piaware-web/package-${OS_VERSION}
 
-sudo dpkg-buildpackage -b --no-sign
+dpkg-buildpackage -b --no-sign
 VER=$(grep "Version:" debian/piaware-web/DEBIAN/control | sed 's/^Version: //')
 
 echo -e "\e[32mInstalling piaware-web package \e[39m"
 cd ../
-sudo dpkg -i piaware-web_${VER}_all.deb
-sudo service lighttpd force-reload
+dpkg -i piaware-web_${VER}_all.deb
+service lighttpd force-reload
 echo ""
 echo -e "\e[32mPIAWARE-WEB INSTALLATION COMPLETED \e[39m"
 echo ""
