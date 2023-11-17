@@ -64,20 +64,22 @@ echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 echo -e "\e[32mInstalling Build tools and Build dependencies\e[39m"
 
 ##Build-Tools
-apt install -y git
-apt install -y build-essential
-apt install -y devscripts
+apt install -y \
+git \
+build-essential \
+devscripts
 
 ##Build-Depends:
-apt install -y debhelper
-apt install -y librtlsdr-dev
-apt install -y libbladerf-dev
-apt install -y libhackrf-dev
-apt install -y liblimesuite-dev
-apt install -y libusb-1.0-0-dev
-apt install -y pkg-config
-apt install -y libncurses5-dev
-apt install -y libsoapysdr-dev
+apt install -y \
+debhelper \
+librtlsdr-dev \
+libbladerf-dev \
+libhackrf-dev \
+liblimesuite-dev \
+libusb-1.0-0-dev \
+pkg-config \
+libncurses5-dev \
+libsoapysdr-dev
 
 echo -e "\e[32mInstalling dependencies \e[39m"
 
