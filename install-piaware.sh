@@ -83,6 +83,10 @@ libboost-regex-dev \
 libboost-filesystem-dev \
 patchelf
 
+if [[ ${OS_VERSION} == bullseye ]]; then
+  apt install -y python3-pip
+fi
+
 if [[ ${OS_VERSION} == bookworm ]]; then
   apt install -y python3-wheel python3-build python3-pip
 fi
