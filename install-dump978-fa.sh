@@ -34,7 +34,7 @@ elif [[ ${OS_VERSION} == jammy ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == kinetic ]]; then
   OS_VERSION=bullseye
-elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
+elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic || ${OS_VERSION} == noble ]]; then
   OS_VERSION=bookworm
   
 ## LINUX MINT
