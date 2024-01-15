@@ -81,7 +81,7 @@ librtlsdr-dev \
 libusb-1.0-0-dev \
 pkg-config \
 libncurses5-dev \
-libsoapysdr-dev
+## libsoapysdr-dev
 
 echo -e "\e[32mInstalling dependencies \e[39m"
 
