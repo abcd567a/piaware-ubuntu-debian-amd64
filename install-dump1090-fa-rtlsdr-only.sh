@@ -75,13 +75,9 @@ devscripts
 apt install -y \
 debhelper \
 librtlsdr-dev \
-## libbladerf-dev \
-## libhackrf-dev \
-## liblimesuite-dev \
 libusb-1.0-0-dev \
 pkg-config \
 libncurses5-dev \
-## libsoapysdr-dev
 
 echo -e "\e[32mInstalling dependencies \e[39m"
 
