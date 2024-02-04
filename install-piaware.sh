@@ -128,7 +128,9 @@ fi
 
 echo -e "\e[32mInstalling tcl-tls package \e[39m"
 cd ../
-sudo dpkg -i tcl-tls_*.deb
+dpkg -i tcl-tls_*.deb
+apt-mark hold tcl-tls
+
 echo -e "\e[36mBUILDING PIAWARE PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 
 echo -e "\e[32mInstalling piaware dependencies \e[39m"
