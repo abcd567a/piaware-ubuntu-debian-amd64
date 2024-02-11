@@ -44,7 +44,7 @@ elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina
   OS_VERSION=stretch
 elif [[ ${OS_VERSION} == una || ${OS_VERSION} == uma || ${OS_VERSION} == ulyana || ${OS_VERSION} == ulyssa ]]; then
   OS_VERSION=buster
-elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == victoria || ${OS_VERSION} == elsie ]]; then
+elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == victoria || ${OS_VERSION} == virginia ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == faye ]]; then
   OS_VERSION=bookworm
