@@ -79,6 +79,7 @@ autoconf \
 python3-dev \
 python3-venv \
 python3-setuptools \
+python3-filelock \
 libz-dev \
 openssl \
 libboost-system-dev \
