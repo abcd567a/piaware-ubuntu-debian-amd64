@@ -34,8 +34,11 @@ elif [[ ${OS_VERSION} == focal ]]; then
   OS_VERSION=buster
 elif [[ ${OS_VERSION} == jammy || ${OS_VERSION} == kinetic ]]; then
   OS_VERSION=bullseye
-elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic || ${OS_VERSION} == noble ]]; then
+elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_VERSION=bookworm
+elif [[ ${OS_VERSION} == noble ]]; then
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/No-Mlat-install-piaware-ubuntu24.sh)"
+  exit 0
   
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
