@@ -74,6 +74,7 @@ build-essential \
 devscripts
 
 ##Build-Depends:
+if [[ `lsb_release -sc` == noble ]]; then apt install libc6=2.39-0ubuntu2; fi
 apt install -y \
 debhelper \
 librtlsdr-dev \
