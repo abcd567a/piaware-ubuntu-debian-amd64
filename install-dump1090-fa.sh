@@ -15,6 +15,8 @@ OS_VERSION=`lsb_release -sc`
 
 echo -e "\e[35mDETECTED OS VERSION" ${OS_ID} ${OS_RELEASE} ${OS_VERSION}  "\e[39m"
 
+if [[ `lsb_release -sc` == noble ]]; then apt install libc6=2.39-0ubuntu2; fi
+
 ## DEBIAN
 if [[ ${OS_VERSION} == stretch ]]; then
   OS_VERSION=stretch
@@ -74,7 +76,6 @@ build-essential \
 devscripts
 
 ##Build-Depends:
-if [[ `lsb_release -sc` == noble ]]; then apt install libc6=2.39-0ubuntu2; fi
 apt install -y \
 debhelper \
 librtlsdr-dev \
