@@ -15,9 +15,7 @@ OS_VERSION=`lsb_release -sc`
 
 echo -e "\e[35mDETECTED OS VERSION" ${OS_ID} ${OS_RELEASE} ${OS_VERSION}  "\e[39m"
 
-if [[ `lsb_release -sc` == noble ]]; then apt install -y --allow-downgrades libc6=2.39-0ubuntu2; fi
-
-## DEBIAN
+# DEBIAN
 if [[ ${OS_VERSION} == stretch ]]; then
   OS_VERSION=stretch
 elif [[ ${OS_VERSION} == buster ]]; then
