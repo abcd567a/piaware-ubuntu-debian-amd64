@@ -5,16 +5,10 @@
 ### (3) Linux Mint 19, 20, & 21 - amd64 / x86_64  
 ### (4) Kali-linux 2021, 2022, & 2023 - amd64  
 ### (5) On RPI Model 3 & 4 (32-bit & 64-bit / armv7l & aarch64) Raspberry Pi OS Stretch, Buster, & Bullseye, DietPi OS Stretch, Buster, Bullseye, & Bookworm, Orange Pi Armbian OS Buster  Bullseye, Bookworm, Jammy, Ubuntu 18, 20, and 22 for RPi, and Kali 2021 for RPi 
-### (6) On RPI <ins>Model 5</ins> Raspberry Pi OS Bookworm (32-bit & 64-bit) </br>
+### (6) On RPI <ins>Model 5</ins> Raspberry Pi OS Bookworm (32-bit & 64-bit) </br></br>
 
 ## (1) DUMP1090-FA
-**IMPORTANT NOTE:** </br>
-Raspberry Pi OS **Bookworm** relesed on 2023-10-10 has broken USB on RPi4, but is OK on RPi5. </br>If you have installed Raspberry Pi OS **Bookworm** (2023-10-10) on RPi4, then to fix this bug, upgrade it by following commands: </br>
-```
-sudo apt update
-sudo apt upgrade
-sudo reboot
-```
+
 Copy-paste following command in SSH console and press Enter key. The script will install dump1090-fa. </br></br>
 `sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-dump1090-fa.sh)" `</br></br>
 
