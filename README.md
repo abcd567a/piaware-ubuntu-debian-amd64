@@ -1,28 +1,28 @@
 ## Automated Installation of <ins>_latest version_</ins> of piaware, dump1090-fa, piaware-web, and dump978-fa (by building packages from source code), on following OS: </br>
 
-### (1) Ubuntu 18, 20, 22, 23 & 24 - amd64 / x86_64  
-### (2) Debian 9, 10, 11, 12 & 13 - amd64 / x86_64  
-### (3) Linux Mint 19, 20, & 21 - amd64 / x86_64  
-### (4) Kali-linux 2021, 2022, & 2023 - amd64  
-### (5) On RPI Model 3 & 4 (32-bit & 64-bit / armv7l & aarch64) Raspberry Pi OS Stretch, Buster, & Bullseye, DietPi OS Stretch, Buster, Bullseye, & Bookworm, Orange Pi Armbian OS Buster  Bullseye, Bookworm, Jammy, Ubuntu 18, 20, and 22 for RPi, and Kali 2021 for RPi 
-### (6) On RPI <ins>Model 5</ins> Raspberry Pi OS Bookworm (32-bit & 64-bit) </br></br>
+### (a) Ubuntu 18, 20, 22, 23 & 24 - amd64 / x86_64  
+### (b) Debian 9, 10, 11, 12 & 13 - amd64 / x86_64  
+### (c) Linux Mint 19, 20, & 21 - amd64 / x86_64  
+### (d) Kali-linux 2021, 2022, & 2023 - amd64  
+### (e) On RPI Model 3 & 4 (32-bit & 64-bit / armv7l & aarch64) Raspberry Pi OS Stretch, Buster, & Bullseye, DietPi OS Stretch, Buster, Bullseye, & Bookworm, Orange Pi Armbian OS Buster  Bullseye, Bookworm, Jammy, Ubuntu 18, 20, and 22 for RPi, and Kali 2021 for RPi 
+### (f) On RPI <ins>Model 5</ins> Raspberry Pi OS Bookworm (32-bit & 64-bit) </br></br>
 
-## (1) DUMP1090-FA
+## (1) <ins>Install DUMP1090-FA</ins>
 
 Copy-paste following command in SSH console and press Enter key. The script will install dump1090-fa. </br></br>
 `sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-dump1090-fa.sh)" `</br></br>
 
 
-## (2) PIAWARE 
+## (2) <ins>Install PIAWARE</ins> 
 Copy-paste following command in SSH console and press Enter key. The script will install piaware. </br></br>
 `sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-piaware.sh)" `</br></br>
 
-## (3) PIAWARE-WEB
+## (3) <ins>Install PIAWARE-WEB</ins>
 Copy-paste following command in SSH console and press Enter key. The script will install piaware-web. </br></br>
 `sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-piaware-web.sh)" `</br></br>
 
 
-## (4) DUMP978-FA (For USA ONLY. Requires 2nd Dongle)
+## (4) <ins>Install DUMP978-FA</ins> (For USA ONLY. Requires 2nd Dongle)
 If you want to receive both ES1090 and UAT978, then two dongles are required, one for 1090 MHz and other for 978 MHz. </br>
 ### (4.1) Copy-paste following command in SSH console and press Enter key. The script will install dump978-fa and skyaware978: </br>
 `sudo bash -c "$(wget -O - https://raw.githubusercontent.com/abcd567a/piaware-ubuntu-debian-amd64/master/install-dump978-fa.sh)" `</br></br>
