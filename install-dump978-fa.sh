@@ -56,6 +56,8 @@ elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2022 ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2023 ]]; then
   OS_VERSION=bookworm
+elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2024 ]]; then
+  OS_VERSION=bookworm
 
 ## ANY OTHER
 else
