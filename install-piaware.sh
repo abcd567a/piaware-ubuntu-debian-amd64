@@ -25,7 +25,9 @@ elif [[ ${OS_VERSION} == bullseye ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
-  OS_VERSION=bookworm
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/No-Mlat-install-piaware-ubuntu24.sh)"
+  exit 0
+
 
 ## UBUNTU
 elif [[ ${OS_VERSION} == bionic ]]; then
