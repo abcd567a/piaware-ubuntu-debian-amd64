@@ -25,7 +25,7 @@ elif [[ ${OS_VERSION} == bullseye ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/No-Mlat-install-piaware-ubuntu24.sh)"
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
   exit 0
 
 
@@ -39,7 +39,7 @@ elif [[ ${OS_VERSION} == jammy || ${OS_VERSION} == kinetic ]]; then
 elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_VERSION=bookworm
 elif [[ ${OS_VERSION} == noble ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/No-Mlat-install-piaware-ubuntu24.sh)"
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
   exit 0
   
 ## LINUX MINT
