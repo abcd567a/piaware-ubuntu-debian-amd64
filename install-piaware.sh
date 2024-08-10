@@ -73,13 +73,13 @@ echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 echo -e "\e[32mInstalling Build tools & Build dependencies\e[39m"
 
 #Build-Tools
-apt install -y \
+apt install \
 git \
 build-essential \
 devscripts
 
 #Build-Depends: 
-apt install -y \
+apt install \
 debhelper \
 tcl8.6-dev \
 autoconf \
@@ -96,16 +96,16 @@ libboost-filesystem-dev \
 patchelf
 
 if [[ ${OS_VERSION} == bullseye ]]; then
-  apt install -y python3-pip
+  apt install python3-pip
 fi
 
 if [[ ${OS_VERSION} == bookworm ]]; then
-  apt install -y python3-wheel python3-build python3-pip
+  apt install python3-wheel python3-build python3-pip
 fi
 
 echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
 echo -e "\e[32mInstalling tcl-tls dependencies \e[39m"
-apt install -y \
+apt install \
 libssl-dev \
 tcl-dev \
 chrpath
@@ -144,7 +144,7 @@ echo -e "\e[36mBUILDING PIAWARE PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 echo -e "\e[32mInstalling piaware dependencies \e[39m"
 
 #Depends:
-apt install -y \
+apt install \
 net-tools \
 iproute2 \
 tclx8.4 \
