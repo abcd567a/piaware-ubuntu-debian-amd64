@@ -111,11 +111,11 @@ itcl3
 
 
 if [[ ${OS_EQV_VERSION} == bullseye ]]; then
-  apt install python3-pip
+  apt install -y python3-pip
 fi
 
 if [[ ${OS_EQV_VERSION} == bookworm ]]; then
-  apt install python3-wheel python3-build python3-pip
+  apt install -y python3-wheel python3-build python3-pip
 fi
 
 echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
