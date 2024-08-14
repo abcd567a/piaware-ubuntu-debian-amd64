@@ -101,7 +101,7 @@ patchelf
 echo -e "\e[32mInstalling piaware dependencies \e[39m"
 sleep 3
 #Depends:
-apt install \
+apt install -y \
 net-tools \
 iproute2 \
 tclx8.4 \
