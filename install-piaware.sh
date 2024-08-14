@@ -12,18 +12,19 @@ apt install -y lsb-release
 OS_ID=`lsb_release -si`
 OS_RELEASE=`lsb_release -sr`
 OS_VERSION=`lsb_release -sc`
+OS_EQV_VERSION=""
 
 echo -e "\e[35mDETECTED OS VERSION" ${OS_ID} ${OS_RELEASE} ${OS_VERSION}  "\e[39m"
 
 ## DEBIAN
 if [[ ${OS_VERSION} == stretch ]]; then
-  OS_VERSION=stretch
+  OS_EQV_VERSION=stretch
 elif [[ ${OS_VERSION} == buster ]]; then
-  OS_VERSION=buster
+  OS_EQV_VERSION=buster
 elif [[ ${OS_VERSION} == bullseye ]]; then
-  OS_VERSION=bullseye
+  OS_EQV_VERSION=bullseye
 elif [[ ${OS_VERSION} == bookworm ]]; then
-  OS_VERSION=bookworm
+  OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
   sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
   exit 0
@@ -31,36 +32,36 @@ elif [[ ${OS_VERSION} == trixie ]]; then
 
 ## UBUNTU
 elif [[ ${OS_VERSION} == bionic ]]; then
-  OS_VERSION=stretch
+  OS_EQV_VERSION=stretch
 elif [[ ${OS_VERSION} == focal ]]; then
-  OS_VERSION=buster
+  OS_EQV_VERSION=buster
 elif [[ ${OS_VERSION} == jammy || ${OS_VERSION} == kinetic ]]; then
-  OS_VERSION=bullseye
+  OS_EQV_VERSION=bullseye
 elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
-  OS_VERSION=bookworm
+  OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == noble ]]; then
   sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
   exit 0
   
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
-  OS_VERSION=stretch
+  OS_EQV_VERSION=stretch
 elif [[ ${OS_VERSION} == una || ${OS_VERSION} == uma || ${OS_VERSION} == ulyana || ${OS_VERSION} == ulyssa ]]; then
-  OS_VERSION=buster
+  OS_EQV_VERSION=buster
 elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == victoria || ${OS_VERSION} == virginia ]]; then
-  OS_VERSION=bullseye
+  OS_EQV_VERSION=bullseye
 elif [[ ${OS_VERSION} == faye ]]; then
-  OS_VERSION=bookworm
+  OS_EQV_VERSION=bookworm
 
 ## KALI LINUX
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2021 ]]; then
-  OS_VERSION=buster
+  OS_EQV_VERSION=buster
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2022 ]]; then
-  OS_VERSION=bullseye
+  OS_EQV_VERSION=bullseye
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2023 ]]; then
-  OS_VERSION=bookworm
+  OS_EQV_VERSION=bookworm
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2024 ]]; then
-  OS_VERSION=bookworm
+  OS_EQV_VERSION=bookworm
 
 ## ANY OTHER
 else
@@ -109,15 +110,16 @@ tcllib \
 itcl3
 
 
-if [[ ${OS_VERSION} == bullseye ]]; then
+if [[ ${OS_EQV_VERSION} == bullseye ]]; then
   apt install python3-pip
 fi
 
-if [[ ${OS_VERSION} == bookworm ]]; then
+if [[ ${OS_EQV_VERSION} == bookworm ]]; then
   apt install python3-wheel python3-build python3-pip
 fi
 
 echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
+sleep 3
 echo -e "\e[32mInstalling tcl-tls dependencies \e[39m"
 sleep 3
 apt install -y \
@@ -134,28 +136,28 @@ mv tcltls-rebuild tcltls-rebuild-old-$RANDOM
 fi
 
 echo -e "\e[32mCloning tcl-tls source code \e[39m"
+sleep 3
 git clone https://github.com/flightaware/tcltls-rebuild
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
-git fetch --all
-git reset --hard origin/master
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
-if [[ ${OS_VERSION} == bookworm ]]; then 
+if [[ ${OS_EQV_VERSION} == bookworm ]]; then 
   ./prepare-build.sh bullseye
   cd package-bullseye
   dpkg-buildpackage -b --no-sign
 else
-  ./prepare-build.sh ${OS_VERSION}
-  cd package-${OS_VERSION}
+  ./prepare-build.sh ${OS_EQV_VERSION}
+  cd package-${OS_EQV_VERSION}
   dpkg-buildpackage -b --no-sign
 fi
 
 echo -e "\e[32mInstalling tcl-tls package \e[39m"
+sleep 3
 cd ../
 dpkg -i tcl-tls_*.deb
 apt-mark hold tcl-tls
 
 echo -e "\e[36mBUILDING PIAWARE PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
-
+sleep 3
 
 cd ${INSTALL_DIRECTORY}
 
@@ -166,18 +168,19 @@ mv piaware_builder piaware_builder-old-$RANDOM
 fi
 
 echo -e "\e[32mCloning piaware source code and building package \e[39m"
+sleep 3
 git clone https://github.com/flightaware/piaware_builder
 cd ${INSTALL_DIRECTORY}/piaware_builder
-git fetch --all
-git reset --hard origin/master
 echo -e "\e[32mBuilding the piaware package \e[39m"
-./sensible-build.sh ${OS_VERSION}
-cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_VERSION}
+sleep 3
+./sensible-build.sh ${OS_EQV_VERSION}
+cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
 
 dpkg-buildpackage -b --no-sign 
 PIAWARE_VER=$(grep "Version:" debian/piaware/DEBIAN/control | sed 's/^Version: //')
 
 echo -e "\e[32mInstalling piaware package\e[39m"
+sleep 3
 cd ../
 dpkg -i piaware_${PIAWARE_VER}_*.deb
 
