@@ -118,6 +118,9 @@ if [[ ${OS_EQV_VERSION} == bookworm ]]; then
   apt install -y python3-wheel python3-build python3-pip
 fi
 
+if [[ ${OS_EQV_VERSION} == bookworm ]]; then
+   apt install -y tcl-tls
+else
 echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
 sleep 3
 echo -e "\e[32mInstalling tcl-tls dependencies \e[39m"
@@ -155,6 +158,8 @@ sleep 3
 cd ../
 dpkg -i tcl-tls_*.deb
 apt-mark hold tcl-tls
+
+fi
 
 echo -e "\e[36mBUILDING PIAWARE PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
 sleep 3
