@@ -72,7 +72,8 @@ echo -e "\e[32mInstalling build tools\e[39m"
 apt install -y \
 git \
 build-essential \
-debhelper
+debhelper \
+lighttpd
 
 cd  ${INSTALL_DIRECTORY}
 
