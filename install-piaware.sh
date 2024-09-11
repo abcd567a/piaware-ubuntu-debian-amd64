@@ -52,7 +52,10 @@ elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == vi
   OS_EQV_VERSION=bullseye
 elif [[ ${OS_VERSION} == faye ]]; then
   OS_EQV_VERSION=bookworm
-
+elif [[ ${OS_VERSION} == wilma ]]; then
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
+  exit 0
+  
 ## KALI LINUX
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2021 ]]; then
   OS_EQV_VERSION=buster
