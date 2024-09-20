@@ -1,11 +1,13 @@
 #!/bin/bash
+
+echo -e "\e[32mUpdating\e[39m"
+apt update
+
 set -e
 trap 'echo "[ERROR] Error in line $LINENO when executing: $BASH_COMMAND"' ERR
 
 INSTALL_DIRECTORY=${PWD}
 
-echo -e "\e[32mUpdating\e[39m"
-apt update
 apt install -y lsb-release
 
 ## Detect OS 
