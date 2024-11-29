@@ -111,7 +111,11 @@ mv dump1090 dump1090-old-$RANDOM
 fi
 
 echo -e "\e[32mCloning dump1090-fa source code\e[39m"
-git clone https://github.com/flightaware/dump1090
+if [[ ${OS_VERSION} == trixie ]]; then
+  git clone -b dev https://github.com/flightaware/dump1090
+else
+  git clone https://github.com/flightaware/dump1090
+fi
 
 cd ${INSTALL_DIRECTORY}/dump1090
 
