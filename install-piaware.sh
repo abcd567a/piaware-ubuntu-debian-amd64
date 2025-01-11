@@ -145,7 +145,7 @@ fi
 
 echo -e "\e[32mCloning tcl-tls source code \e[39m"
 sleep 3
-git clone https://github.com/flightaware/tcltls-rebuild
+git clone --depth 1 https://github.com/flightaware/tcltls-rebuild
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
 if [[ ${OS_EQV_VERSION} == bookworm ]]; then 
@@ -179,7 +179,7 @@ fi
 
 echo -e "\e[32mCloning piaware source code and building package \e[39m"
 sleep 3
-git clone https://github.com/flightaware/piaware_builder
+git clone --depth 1 https://github.com/flightaware/piaware_builder
 cd ${INSTALL_DIRECTORY}/piaware_builder
 echo -e "\e[32mBuilding the piaware package \e[39m"
 sleep 3
