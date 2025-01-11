@@ -85,11 +85,9 @@ sudo mv piaware-web piaware-web-old-$RANDOM
 fi
 
 echo -e "\e[32mCloning piaware-web source code \e[39m"
-git clone https://github.com/flightaware/piaware-web
-cd  ${INSTALL_DIRECTORY}/piaware-web
-git fetch --all
-git reset --hard origin/master
+git clone --depth 1 https://github.com/flightaware/piaware-web
 
+cd  ${INSTALL_DIRECTORY}/piaware-web
 echo -e "\e[32mbuilding piaware-web package \e[39m"
 ./prepare-build.sh ${OS_VERSION}
 cd  ${INSTALL_DIRECTORY}/piaware-web/package-${OS_VERSION}
