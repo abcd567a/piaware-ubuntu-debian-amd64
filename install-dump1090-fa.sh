@@ -112,9 +112,9 @@ fi
 
 echo -e "\e[32mCloning dump1090-fa source code\e[39m"
 if [[ ${OS_VERSION} == trixie ]]; then
-  git clone -b dev https://github.com/flightaware/dump1090
+  git clone -b dev --depth 1 https://github.com/flightaware/dump1090
 else
-  git clone https://github.com/flightaware/dump1090
+  git clone --depth 1 https://github.com/flightaware/dump1090
 fi
 
 cd ${INSTALL_DIRECTORY}/dump1090
