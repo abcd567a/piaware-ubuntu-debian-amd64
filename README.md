@@ -5,8 +5,9 @@
 ### (b) Debian 9, 10, 11, 12 & 13 - amd64 / x86_64  
 ### (c) Linux Mint 19, 20, 21 & 22 - amd64 / x86_64  
 ### (d) Kali-linux 2021, 2022, 2023 & 2024 - amd64  
-### (e) On RPI Model 3 & 4 (32-bit & 64-bit / armv7l & aarch64) Raspberry Pi OS Stretch, Buster, Bullseye & Bookworm, DietPi OS Stretch, Buster, Bullseye, & Bookworm, Orange Pi Armbian OS Buster  Bullseye, Bookworm, Jammy, Ubuntu 18, 20, 22, and 24 for RPi, and Kali 2021, 2022, 2023, & 2024 for RPi 
-### (f) On RPI <ins>Model 5</ins> Raspberry Pi OS Bookworm (32-bit & 64-bit) </br></br>
+### (e) MX-linux 22 & 23 - amd64  
+### (f) On RPI Model 3 & 4 (32-bit & 64-bit / armv7l & aarch64) Raspberry Pi OS Stretch, Buster, Bullseye & Bookworm, DietPi OS Stretch, Buster, Bullseye, & Bookworm, Orange Pi Armbian OS Buster  Bullseye, Bookworm, Jammy, Ubuntu 18, 20, 22, and 24 for RPi, and Kali 2021, 2022, 2023, & 2024 for RPi 
+### (g) On RPI <ins>Model 5</ins> Raspberry Pi OS Bookworm (32-bit & 64-bit) </br></br>
 
 ## (1) <ins>Install DUMP1090-FA</ins>
 
