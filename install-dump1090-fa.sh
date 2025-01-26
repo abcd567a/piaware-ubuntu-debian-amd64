@@ -130,15 +130,18 @@ echo -e "\e[32mInstalling dump1090-fa\e[39m"
 cd ../
 dpkg -i dump1090-fa_${DUMP_VER}_*.deb
 
-systemctl enable dump1090-fa
-systemctl restart dump1090-fa
+if [[ `pstree | grep systemd` ]]; then
+   systemctl enable dump1090-fa
+   systemctl restart dump1090-fa
 
-echo -e "\e[32mFOR MX LINUX and other OS using SysVinit instead of Systemd,\e[39m"
-echo -e "\e[32minstalling SysVinit for dump1090-fa\e[39m"
-wget -O /etc/init.d/dump1090-fa https://github.com/abcd567a/dump1090-fa-init.d/raw/main/dump1090-fa
-sudo chmod +x /etc/init.d/dump1090-fa
-update-rc.d dump1090-fa defaults
-/etc/init.d/dump1090-fa start
+else
+   echo -e "\e[32mFOR MX LINUX and other OS using SysVinit instead of Systemd,\e[39m"
+   echo -e "\e[32minstalling SysVinit for dump1090-fa\e[39m"
+   wget -O /etc/init.d/dump1090-fa https://github.com/abcd567a/dump1090-fa-init.d/raw/main/dump1090-fa
+   sudo chmod +x /etc/init.d/dump1090-fa
+   update-rc.d dump1090-fa defaults
+   /etc/init.d/dump1090-fa start
+fi
 
 echo ""
 echo -e "\e[32mDUMP1090-FA INSTALLATION COMPLETED \e[39m"
