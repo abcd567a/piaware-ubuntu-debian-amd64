@@ -130,7 +130,7 @@ echo -e "\e[32mInstalling dump1090-fa\e[39m"
 cd ../
 dpkg -i dump1090-fa_${DUMP_VER}_*.deb
 
-if [[ `pstree | grep systemd` ]]; then
+if [[ `ps --no-headers -o comm 1` == "systemd" ]]; then
    systemctl enable dump1090-fa
    systemctl restart dump1090-fa
 
