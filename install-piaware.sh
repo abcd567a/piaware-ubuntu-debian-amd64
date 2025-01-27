@@ -212,7 +212,7 @@ echo -e "\e[39m    sudo piaware-config allow-auto-updates yes \e[39m"
 if [[ `pstree | grep systemd` ]]; then
    echo -e "\e[39m    sudo systemctl restart piaware \e[39m"
 else
-   echo -e "\e[39m    sudo service piaware start \e[39m"
+   echo -e "\e[39m    sudo service piaware restart \e[39m"
 fi
 
 echo ""
