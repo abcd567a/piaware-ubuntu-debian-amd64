@@ -194,8 +194,10 @@ sleep 3
 cd ../
 dpkg -i piaware_${PIAWARE_VER}_*.deb
 
+if [[ `pstree | grep systemd` ]]; then
 systemctl enable piaware
 systemctl restart piaware
+fi
 
 echo ""
 echo -e "\e[32mPIAWARE INSTALLATION COMPLETED \e[39m"
@@ -207,7 +209,12 @@ echo ""
 echo -e "\e[39m    sudo piaware-config feeder-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \e[39m"
 echo -e "\e[39m    sudo piaware-config allow-manual-updates yes \e[39m"
 echo -e "\e[39m    sudo piaware-config allow-auto-updates yes \e[39m"
-echo -e "\e[39m    sudo systemctl restart piaware \e[39m"
+if [[ `pstree | grep systemd` ]]; then
+   echo -e "\e[39m    sudo systemctl restart piaware \e[39m"
+else
+   echo -e "\e[39m    sudo service piaware start \e[39m"
+fi
+
 echo ""
 echo -e "\e[39mIf you dont already have a feeder-id, please go to Flightaware Claim page while loggedin \e[39m"
 echo -e "\e[94m    https://flightaware.com/adsb/piaware/claim \e[39m"
