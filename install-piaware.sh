@@ -194,7 +194,7 @@ sleep 3
 cd ../
 dpkg -i piaware_${PIAWARE_VER}_*.deb
 
-if [[ `pstree | grep systemd` ]]; then
+if [[ `ps --no-headers -o comm 1` == "systemd" ]]; then
 systemctl enable piaware
 systemctl restart piaware
 fi
@@ -209,7 +209,7 @@ echo ""
 echo -e "\e[39m    sudo piaware-config feeder-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \e[39m"
 echo -e "\e[39m    sudo piaware-config allow-manual-updates yes \e[39m"
 echo -e "\e[39m    sudo piaware-config allow-auto-updates yes \e[39m"
-if [[ `pstree | grep systemd` ]]; then
+if [[ `ps --no-headers -o comm 1` == "systemd" ]]; then
    echo -e "\e[39m    sudo systemctl restart piaware \e[39m"
 else
    echo -e "\e[39m    sudo service piaware restart \e[39m"
