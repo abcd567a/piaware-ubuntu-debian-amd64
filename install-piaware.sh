@@ -28,7 +28,7 @@ elif [[ ${OS_VERSION} == bullseye ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/10.0-dev-debian13-ubuntu24.sh)"
   exit 0
 
 
@@ -42,7 +42,7 @@ elif [[ ${OS_VERSION} == jammy || ${OS_VERSION} == kinetic ]]; then
 elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == noble ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/10.0-dev-debian13-ubuntu24.sh)"
   exit 0
   
 ## LINUX MINT
@@ -55,7 +55,7 @@ elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == vi
 elif [[ ${OS_VERSION} == faye ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == wilma || ${OS_VERSION} == xia ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/10.0-dev-debian13-ubuntu24.sh)"
   exit 0
   
 ## KALI LINUX
@@ -112,8 +112,8 @@ iproute2 \
 tclx8.4 \
 tcl8.6 \
 tcllib \
-itcl3
-
+itcl3 \
+rsyslog
 
 if [[ ${OS_EQV_VERSION} == bullseye ]]; then
   apt install -y python3-pip
