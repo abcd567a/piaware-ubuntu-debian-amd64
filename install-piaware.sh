@@ -42,7 +42,7 @@ elif [[ ${OS_VERSION} == jammy || ${OS_VERSION} == kinetic ]]; then
 elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == noble ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/10.0-dev-debian13-ubuntu24.sh)"
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/9.0-ubuntu24.sh)"
   exit 0
   
 ## LINUX MINT
