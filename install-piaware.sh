@@ -28,7 +28,7 @@ elif [[ ${OS_VERSION} == bullseye ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/10.0-dev-debian13-ubuntu24.sh)"
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
   exit 0
 
 
