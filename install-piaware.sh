@@ -42,7 +42,7 @@ elif [[ ${OS_VERSION} == jammy || ${OS_VERSION} == kinetic ]]; then
 elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == noble ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24.sh)"
   exit 0
   
 ## LINUX MINT
@@ -55,7 +55,7 @@ elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == vi
 elif [[ ${OS_VERSION} == faye ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == wilma || ${OS_VERSION} == xia ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24-debian13.sh)"
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24.sh)"
   exit 0
   
 ## KALI LINUX
@@ -71,12 +71,13 @@ elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2024 ]]; then
 ## ANY OTHER
 else
    echo -e "\e[01;31mdont know how to install on" ${OS_ID} ${OS_RELEASE} ${OS_VERSION} "\e[39m"
+   echo -e "\e[01;31mAborting installation ...\e[39m"
    exit
 fi
 
-echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
+echo -e "\e[1;36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[0;39m"
 
-echo -e "\e[32mInstalling Build Tools \e[39m"
+echo -e "\e[1;32mInstalling Build Tools \e[0;39m"
 sleep 3
 #Build-Tools
 apt install -y \
@@ -84,7 +85,7 @@ git \
 build-essential \
 devscripts
 
-echo -e "\e[32mInstalling Build dependencies \e[39m"
+echo -e "\e[1;32mInstalling Build dependencies \e[0;39m"
 sleep 3
 #Build-Depends: 
 apt install -y \
@@ -103,7 +104,7 @@ libboost-regex-dev \
 libboost-filesystem-dev \
 patchelf
 
-echo -e "\e[32mInstalling piaware dependencies \e[39m"
+echo -e "\e[1;32mInstalling piaware dependencies \e[0;39m"
 sleep 3
 #Depends:
 apt install -y \
@@ -126,9 +127,9 @@ fi
 if [[ ${OS_EQV_VERSION} == bookworm ]]; then
    apt install -y tcl-tls
 else
-echo -e "\e[32mBuilding & Installing tcl-tls from source code. \e[39m"
+echo -e "\e[1;32mBuilding & Installing tcl-tls from source code. \e[1;39m"
 sleep 3
-echo -e "\e[32mInstalling tcl-tls dependencies \e[39m"
+echo -e "\e[1;32mInstalling tcl-tls dependencies \e[0;39m"
 sleep 3
 apt install -y \
 libssl-dev \
@@ -139,11 +140,11 @@ cd  ${INSTALL_DIRECTORY}
 
 if [[ -d tcltls-rebuild ]];
 then
-echo -e "\e[32mRenaming existing tcltls-rebuild folder by adding prefix \"old\" \e[39m"
+echo -e "\e[1;32mRenaming existing tcltls-rebuild folder by adding prefix \"old\" \e[0;39m"
 mv tcltls-rebuild tcltls-rebuild-old-$RANDOM
 fi
 
-echo -e "\e[32mCloning tcl-tls source code \e[39m"
+echo -e "\e[1;32mCloning tcl-tls source code \e[0;39m"
 sleep 3
 git clone --depth 1 https://github.com/flightaware/tcltls-rebuild
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
@@ -158,7 +159,7 @@ else
   dpkg-buildpackage -b --no-sign
 fi
 
-echo -e "\e[32mInstalling tcl-tls package \e[39m"
+echo -e "\e[1;32mInstalling tcl-tls package \e[0;39m"
 sleep 3
 cd ../
 dpkg -i tcl-tls_*.deb
@@ -166,7 +167,7 @@ apt-mark hold tcl-tls
 
 fi
 
-echo -e "\e[36mBUILDING PIAWARE PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
+echo -e "\e[1;36mBUILDING PIAWARE PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[0;39m"
 sleep 3
 
 cd ${INSTALL_DIRECTORY}
@@ -181,7 +182,7 @@ echo -e "\e[32mCloning piaware source code and building package \e[39m"
 sleep 3
 git clone --depth 1 https://github.com/flightaware/piaware_builder
 cd ${INSTALL_DIRECTORY}/piaware_builder
-echo -e "\e[32mBuilding the piaware package \e[39m"
+echo -e "\e[1;32mBuilding the piaware package \e[0;39m"
 sleep 3
 ./sensible-build.sh ${OS_EQV_VERSION}
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
@@ -189,7 +190,7 @@ cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
 dpkg-buildpackage -b --no-sign 
 PIAWARE_VER=$(grep "Version:" debian/piaware/DEBIAN/control | sed 's/^Version: //')
 
-echo -e "\e[32mInstalling piaware package\e[39m"
+echo -e "\e[1;32mInstalling piaware package\e[0;39m"
 sleep 3
 cd ../
 dpkg -i piaware_${PIAWARE_VER}_*.deb
@@ -200,11 +201,11 @@ systemctl restart piaware
 fi
 
 echo ""
-echo -e "\e[32mPIAWARE INSTALLATION COMPLETED \e[39m"
+echo -e "\e[1;32mPIAWARE INSTALLATION COMPLETED \e[0;39m"
 echo ""
-echo -e "\e[39mIf you already have  feeder-id, please configure piaware with it \e[39m"
-echo -e "\e[39mFeeder Id is available on this address while loggedin: \e[39m"
-echo -e "\e[94m    https://flightaware.com/adsb/stats/user/ \e[39m"
+echo -e "\e[1;39mIf you already have  feeder-id, please configure piaware with it \e[0;39m"
+echo -e "\e[1;39mFeeder Id is available on this address while loggedin: \e[0;39m"
+echo -e "\e[1;94m    https://flightaware.com/adsb/stats/user/ \e[0;39m"
 echo ""
 echo -e "\e[39m    sudo piaware-config feeder-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \e[39m"
 echo -e "\e[39m    sudo piaware-config allow-manual-updates yes \e[39m"
@@ -216,7 +217,7 @@ else
 fi
 
 echo ""
-echo -e "\e[39mIf you dont already have a feeder-id, please go to Flightaware Claim page while loggedin \e[39m"
+echo -e "\e[1;39mIf you dont already have a feeder-id, please go to Flightaware Claim page while loggedin \e[0;39m"
 echo -e "\e[94m    https://flightaware.com/adsb/piaware/claim \e[39m"
 echo ""
 
