@@ -125,9 +125,9 @@ DUMP_VER=$(grep "Version:" debian/dump1090-fa/DEBIAN/control | sed 's/^Version: 
 echo -e "\e[32mInstalling dump1090-fa\e[39m"
 cd ../
 dpkg -i dump1090-fa_${DUMP_VER}_*.deb
-
+if [[ ! -f /etc/udev/rules.d/rtl-sdr.rules ]]; then
 wget -O /etc/udev/rules.d/rtl-sdr.rules https://github.com/abcd567a/temp/raw/main/rtl-sdr.rules
-
+fi
 if [[ `ps --no-headers -o comm 1` == "systemd" ]]; then
    systemctl enable dump1090-fa
    systemctl restart dump1090-fa
