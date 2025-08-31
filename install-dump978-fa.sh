@@ -120,6 +120,11 @@ sudo systemctl enable skyaware978
 sudo systemctl restart skyaware978
 
 sudo dpkg -i dump978-fa_${DUMP_VER}_*.deb
+
+if [[ ! -f /etc/udev/rules.d/rtl-sdr.rules ]]; then
+wget -O /etc/udev/rules.d/rtl-sdr.rules https://github.com/abcd567a/temp/raw/main/rtl-sdr.rules
+fi
+
 sudo systemctl enable dump978-fa
 sudo systemctl restart dump978-fa
 
