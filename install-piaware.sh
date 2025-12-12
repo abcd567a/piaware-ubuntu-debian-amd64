@@ -18,7 +18,7 @@ OS_EQV_VERSION=""
 
 echo -e "\e[35mDETECTED OS VERSION" ${OS_ID} ${OS_RELEASE} ${OS_VERSION}  "\e[39m"
 
-## DEBIAN
+## DEBIAN, MX-Linux and antiX
 if [[ ${OS_VERSION} == stretch ]]; then
   OS_EQV_VERSION=stretch
 elif [[ ${OS_VERSION} == buster ]]; then
