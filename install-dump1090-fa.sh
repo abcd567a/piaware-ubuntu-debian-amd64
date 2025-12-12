@@ -18,7 +18,7 @@ OS_EQV_VERSION=""
 
 echo -e "\e[35mDETECTED OS VERSION" ${OS_ID} ${OS_RELEASE} ${OS_VERSION}  "\e[39m"
 
-# DEBIAN
+# DEBIAN, MX-Linux, and antiX
 if [[ ${OS_VERSION} == stretch ]]; then
   OS_EQV_VERSION=stretch
 elif [[ ${OS_VERSION} == buster ]]; then
@@ -133,7 +133,7 @@ if [[ `ps --no-headers -o comm 1` == "systemd" ]]; then
    systemctl restart dump1090-fa
 
 else
-   echo -e "\e[32mFOR MX LINUX and other OS using SysVinit instead of Systemd,\e[39m"
+   echo -e "\e[32mFor MX-LINUX, antiX, and other Debian based OS using SysVinit instead of Systemd,\e[39m"
    echo -e "\e[32minstalling SysVinit for dump1090-fa\e[39m"
    wget -O /etc/init.d/dump1090-fa https://github.com/abcd567a/dump1090-fa-init.d/raw/main/dump1090-fa
    sudo chmod +x /etc/init.d/dump1090-fa
