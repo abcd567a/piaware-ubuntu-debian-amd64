@@ -202,7 +202,7 @@ fi
 
 echo -e "\e[32mFor MX-LINUX, antiX, and other Debian based OS using SysVinit instead of Systemd,\e[39m"
 echo -e "\e[32mBug Fix for \"service piaware status\" command\e[39m"
-sed -i 's/\/usr\/bin\/piaware-config -status/status_of_proc \$DAEMON /' /etc/init.d/piaware 
+sed -i 's/\/usr\/bin\/piaware-config -status/status_of_proc \$DAEMON \"piaware\" /' /etc/init.d/piaware 
 
 echo ""
 echo -e "\e[1;32mPIAWARE INSTALLATION COMPLETED \e[0;39m"
