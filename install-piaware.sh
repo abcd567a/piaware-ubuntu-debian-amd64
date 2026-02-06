@@ -30,6 +30,9 @@ elif [[ ${OS_VERSION} == bookworm ]]; then
 elif [[ ${OS_VERSION} == trixie ]]; then
   sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian13.sh)"
   exit 0
+elif [[ ${OS_VERSION} == forky ]]; then
+  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian13.sh)"
+  exit 0
 
 
 ## UBUNTU
