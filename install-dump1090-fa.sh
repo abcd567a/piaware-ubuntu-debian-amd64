@@ -29,6 +29,8 @@ elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
   OS_EQV_VERSION=bookworm
+elif [[ ${OS_VERSION} == forky ]]; then
+  OS_EQV_VERSION=bookworm
   
 ## UBUNTU
 elif [[ ${OS_VERSION} == bionic ]]; then
@@ -111,7 +113,11 @@ mv dump1090 dump1090-old-$RANDOM
 fi
 
 echo -e "\e[32mCloning dump1090-fa source code\e[39m"
-git clone --depth 1 https://github.com/flightaware/dump1090
+if [[ ${OS_VERSION} == forky ]]; then
+   git clone --depth 1 https://github.com/abcd567a/dump1090
+else
+   git clone --depth 1 https://github.com/flightaware/dump1090
+fi
 
 cd ${INSTALL_DIRECTORY}/dump1090
 
