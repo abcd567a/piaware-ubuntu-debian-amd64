@@ -27,9 +27,9 @@ elif [[ ${OS_VERSION} == bullseye ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
-  OS_VERSION=bookworm
+  OS_VERSION=trixie
 elif [[ ${OS_VERSION} == forky ]]; then
-  OS_VERSION=bookworm
+  OS_VERSION=trixie
 
 ## UBUNTU
 elif [[ ${OS_VERSION} == bionic ]]; then
@@ -105,11 +105,7 @@ sudo mv dump978 dump978-old-$RANDOM
 fi
 
 echo -e "\e[32mCloning dump978 source code\e[39m"
-if [[ `lsb_release -sc` == "forky" ]]; then
-  git clone --depth 1 -b boost-asio-deprecation https://github.com/flightaware/dump978;
-else
-  git clone --depth 1 https://github.com/flightaware/dump978;
-fi
+git clone --depth 1 -b dev https://github.com/flightaware/dump978;
 
 cd ${INSTALL_DIRECTORY}/dump978
 echo -e "\e[32mBuilding dump978-fa package\e[39m"
