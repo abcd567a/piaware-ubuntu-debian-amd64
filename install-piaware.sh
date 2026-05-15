@@ -189,7 +189,7 @@ cd ${INSTALL_DIRECTORY}/piaware_builder
 echo -e "\e[1;32mBuilding the piaware package \e[0;39m"
 sleep 3
 if [[ `lsb_release -sc` == forky ]]; then
-sed -i "/piaware.git v11.0/a find $OUTDIR/piaware -type f -exec sed -i 's/c_rehash/openssl rehash/g' {} +"  sensible-build.sh
+sed -i "/piaware.git v11.0/a find \$OUTDIR/piaware -type f -exec sed -i 's/c_rehash/openssl rehash/g' {} +"  sensible-build.sh
 fi
 ./sensible-build.sh ${OS_EQV_VERSION}
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
