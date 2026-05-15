@@ -28,9 +28,9 @@ elif [[ ${OS_VERSION} == bullseye ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
-  OS_EQV_VERSION=bookworm
+  OS_EQV_VERSION=trixie
 elif [[ ${OS_VERSION} == forky ]]; then
-  OS_EQV_VERSION=bookworm
+  OS_EQV_VERSION=trixie
   
 ## UBUNTU
 elif [[ ${OS_VERSION} == bionic ]]; then
