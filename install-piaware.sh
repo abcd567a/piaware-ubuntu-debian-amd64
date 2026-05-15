@@ -28,8 +28,9 @@ elif [[ ${OS_VERSION} == bullseye ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian13.sh)"
-  exit 0
+  ##sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian13.sh)"
+  ##exit 0
+  OS_EQV_VERSION=trixie
 elif [[ ${OS_VERSION} == forky ]]; then
   sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian13.sh)"
   exit 0
@@ -127,7 +128,7 @@ if [[ ${OS_EQV_VERSION} == bookworm ]]; then
   apt install -y python3-wheel python3-build python3-pip
 fi
 
-if [[ ${OS_EQV_VERSION} == bookworm ]]; then
+if [[ ${OS_EQV_VERSION} == bookworm || ${OS_EQV_VERSION} == trixie ]]; then
    apt install -y tcl-tls
 else
 echo -e "\e[1;32mBuilding & Installing tcl-tls from source code. \e[1;39m"
