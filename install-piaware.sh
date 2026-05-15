@@ -101,9 +101,9 @@ python3-venv \
 python3-setuptools \
 python3-filelock \
 python3-wheel \
-python3-build
-python3-pip
-python3-pyasyncore
+python3-build \
+python3-pip \
+python3-pyasyncore \
 libz-dev \
 openssl \
 libboost-system-dev \
