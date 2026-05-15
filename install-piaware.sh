@@ -32,9 +32,9 @@ elif [[ ${OS_VERSION} == trixie ]]; then
   ##exit 0
   OS_EQV_VERSION=trixie
 elif [[ ${OS_VERSION} == forky ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian13.sh)"
-  exit 0
-
+  ##sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian13.sh)"
+  ##exit 0
+  OS_EQV_VERSION=trixie
 
 ## UBUNTU
 elif [[ ${OS_VERSION} == bionic ]]; then
