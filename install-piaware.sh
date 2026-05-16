@@ -46,8 +46,9 @@ elif [[ ${OS_VERSION} == jammy || ${OS_VERSION} == kinetic ]]; then
 elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == noble ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24.sh)"
-  exit 0
+  ##sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24.sh)"
+  ##exit 0
+  OS_EQV_VERSION=trixie
   
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
@@ -59,8 +60,9 @@ elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == vi
 elif [[ ${OS_VERSION} == faye ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == wilma || ${OS_VERSION} == xia || ${OS_VERSION} == zara ]]; then
-  sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24.sh)"
-  exit 0
+  ##sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24.sh)"
+  ##exit 0
+  OS_EQV_VERSION=trixie
   
 ## KALI LINUX
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2021 ]]; then
