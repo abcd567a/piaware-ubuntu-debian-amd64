@@ -40,8 +40,10 @@ elif [[ ${OS_VERSION} == jammy ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == kinetic ]]; then
   OS_VERSION=bullseye
-elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic || ${OS_VERSION} == noble ]]; then
+elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_VERSION=bookworm
+elif [[ ${OS_VERSION} == noble ]]; then
+  OS_VERSION=trixie
   
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
