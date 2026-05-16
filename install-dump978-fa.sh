@@ -107,7 +107,7 @@ sudo mv dump978 dump978-old-$RANDOM
 fi
 
 echo -e "\e[32mCloning dump978 source code\e[39m"
-git clone --depth 1 -b dev https://github.com/flightaware/dump978;
+git clone --depth 1 https://github.com/flightaware/dump978;
 
 cd ${INSTALL_DIRECTORY}/dump978
 echo -e "\e[32mBuilding dump978-fa package\e[39m"
