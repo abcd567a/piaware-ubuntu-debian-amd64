@@ -28,12 +28,8 @@ elif [[ ${OS_VERSION} == bullseye ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
-  ##sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian13.sh)"
-  ##exit 0
   OS_EQV_VERSION=trixie
 elif [[ ${OS_VERSION} == forky ]]; then
-  ##sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-debian13.sh)"
-  ##exit 0
   OS_EQV_VERSION=trixie
 
 ## UBUNTU
@@ -42,13 +38,11 @@ elif [[ ${OS_VERSION} == bionic ]]; then
 elif [[ ${OS_VERSION} == focal ]]; then
   OS_EQV_VERSION=buster
 elif [[ ${OS_VERSION} == jammy || ${OS_VERSION} == kinetic ]]; then
-  OS_EQV_VERSION=bullseye
+  OS_EQV_VERSION=jammy
 elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == noble ]]; then
-  ##sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24.sh)"
-  ##exit 0
-  OS_EQV_VERSION=trixie
+   OS_EQV_VERSION=noble
   
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
@@ -105,7 +99,6 @@ python3-filelock \
 python3-wheel \
 python3-build \
 python3-pip \
-python3-pyasyncore \
 libz-dev \
 openssl \
 libboost-system-dev \
@@ -130,11 +123,11 @@ if [[ ${OS_EQV_VERSION} == bullseye ]]; then
   apt install -y python3-pip
 fi
 
-if [[ ${OS_EQV_VERSION} == bookworm ]]; then
-  apt install -y python3-wheel python3-build python3-pip
+if [[ ${OS_EQV_VERSION} == bookworm || ${OS_EQV_VERSION} == trixie || ${OS_EQV_VERSION} == noble ]]; then
+  apt install -y python3-pyasyncore 
 fi
 
-if [[ ${OS_EQV_VERSION} == bookworm || ${OS_EQV_VERSION} == trixie ]]; then
+if [[ ${OS_EQV_VERSION} == bookworm || ${OS_EQV_VERSION} == trixie || ${OS_EQV_VERSION} == noble ]]; then
    apt install -y tcl-tls
 else
 echo -e "\e[1;32mBuilding & Installing tcl-tls from source code. \e[1;39m"
