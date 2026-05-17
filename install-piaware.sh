@@ -152,7 +152,7 @@ sleep 3
 git clone --depth 1 https://github.com/flightaware/tcltls-rebuild
 cd  ${INSTALL_DIRECTORY}/tcltls-rebuild
 echo -e "\e[32mbuilding tcl-tls package \e[39m"
-if [[ ${OS_EQV_VERSION} == bookworm ]]; then 
+if [[ ${OS_EQV_VERSION} == bookworm || ${OS_EQV_VERSION} == jammy ]]; then 
   ./prepare-build.sh bullseye
   cd package-bullseye
   dpkg-buildpackage -b --no-sign
