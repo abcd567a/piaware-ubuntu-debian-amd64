@@ -45,6 +45,8 @@ elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_EQV_VERSION=bookworm
 elif [[ ${OS_VERSION} == noble ]]; then
   OS_EQV_VERSION=trixie
+elif [[ ${OS_VERSION} == resolute ]]; then
+  OS_EQV_VERSION=trixie
   
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
