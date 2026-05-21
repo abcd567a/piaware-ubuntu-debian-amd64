@@ -27,7 +27,9 @@ elif [[ ${OS_VERSION} == bullseye ]]; then
 elif [[ ${OS_VERSION} == bookworm ]]; then
   OS_VERSION=bookworm
 elif [[ ${OS_VERSION} == trixie ]]; then
-  OS_VERSION=bookworm
+  OS_VERSION=trixie
+elif [[ ${OS_VERSION} == forky ]]; then
+  OS_VERSION=trixie
 
 ## UBUNTU
 elif [[ ${OS_VERSION} == bionic ]]; then
@@ -38,8 +40,10 @@ elif [[ ${OS_VERSION} == jammy ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == kinetic ]]; then
   OS_VERSION=bullseye
-elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic || ${OS_VERSION} == noble ]]; then
+elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_VERSION=bookworm
+elif [[ ${OS_VERSION} == noble || ${OS_VERSION} == resolute ]]; then
+  OS_VERSION=trixie
 
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
@@ -85,7 +89,7 @@ sudo mv piaware-web piaware-web-old-$RANDOM
 fi
 
 echo -e "\e[32mCloning piaware-web source code \e[39m"
-git clone --depth 1 https://github.com/flightaware/piaware-web
+git clone --depth 1 -b dev https://github.com/flightaware/piaware-web
 
 cd  ${INSTALL_DIRECTORY}/piaware-web
 echo -e "\e[32mbuilding piaware-web package \e[39m"
