@@ -199,7 +199,7 @@ cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
 
 ## FORKY: Workaround part 2 of 2 for missing libboost-system-dev
 if [[ `lsb_release -sc` == forky ]]; then
-sed -i 's/libboost-system-dev/libboost-all-dev/' debian/control
+sed -i 's/libboost-system-dev,//' debian/control
 fi
 
 dpkg-buildpackage -b --no-sign 
