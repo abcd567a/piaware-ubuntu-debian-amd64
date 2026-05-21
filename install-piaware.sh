@@ -103,11 +103,16 @@ python3-build \
 python3-pip \
 libz-dev \
 openssl \
-libboost-system-dev \
 libboost-program-options-dev \
 libboost-regex-dev \
 libboost-filesystem-dev \
 patchelf
+
+if [[ `apt-cache policy libboost-system-dev | grep Candidate` == "" ]]; then 
+   apt install libboost-all-dev; 
+else 
+   apt install libboost-system-dev; 
+fi
 
 echo -e "\e[1;32mInstalling piaware dependencies \e[0;39m"
 sleep 3
@@ -120,10 +125,6 @@ tcl8.6 \
 tcllib \
 itcl3 \
 rsyslog
-
-if [[ ${OS_EQV_VERSION} == bullseye ]]; then
-  apt install -y python3-pip
-fi
 
 if [[ ${OS_EQV_VERSION} == bookworm || ${OS_EQV_VERSION} == trixie || ${OS_EQV_VERSION} == noble ]]; then
   apt install -y python3-pyasyncore 
@@ -191,6 +192,9 @@ echo -e "\e[1;32mBuilding the piaware package \e[0;39m"
 sleep 3
 if [[ `lsb_release -sc` == forky ]]; then
 sed -i "/piaware.git v11.0/a find \$OUTDIR/piaware -type f -exec sed -i 's/c_rehash/openssl rehash/g' {} +"  sensible-build.sh
+./sensible-build.sh ${OS_EQV_VERSION}
+cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
+sed -i 's/libboost-system-dev/libboost-all-dev/' debian/control
 fi
 ./sensible-build.sh ${OS_EQV_VERSION}
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
