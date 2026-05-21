@@ -86,7 +86,6 @@ devscripts
 ##Build-Depends:
 apt install -y \
 debhelper \
-libboost-system-dev \
 libboost-program-options-dev \
 libboost-regex-dev \
 libboost-filesystem-dev \
