@@ -109,9 +109,9 @@ libboost-filesystem-dev \
 patchelf
 ## FORKY: Workaround part 1 of 2 for missing libboost-system-dev
 if [[ `apt-cache policy libboost-system-dev | grep Candidate` == "" ]]; then 
-   apt install libboost-all-dev; 
+   apt install -y libboost-all-dev; 
 else 
-   apt install libboost-system-dev; 
+   apt install -y libboost-system-dev; 
 fi
 
 echo -e "\e[1;32mInstalling piaware dependencies \e[0;39m"
