@@ -44,7 +44,7 @@ elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
 elif [[ ${OS_VERSION} == noble ]]; then
    OS_EQV_VERSION=noble
 elif [[ ${OS_VERSION} == resolute ]]; then
-   OS_EQV_VERSION=trixie
+   OS_EQV_VERSION=noble
   
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
@@ -52,13 +52,17 @@ elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina
 elif [[ ${OS_VERSION} == una || ${OS_VERSION} == uma || ${OS_VERSION} == ulyana || ${OS_VERSION} == ulyssa ]]; then
   OS_EQV_VERSION=buster
 elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == victoria || ${OS_VERSION} == virginia ]]; then
-  OS_EQV_VERSION=bullseye
+  OS_EQV_VERSION=jammy
+elif [[ ${OS_VERSION} == wilma || ${OS_VERSION} == xia || ${OS_VERSION} == zara || ${OS_VERSION} == zena ]]; then
+  OS_EQV_VERSION=noble
+# LMDE-6 (Linux Mint Debian Edition)
 elif [[ ${OS_VERSION} == faye ]]; then
   OS_EQV_VERSION=bookworm
-elif [[ ${OS_VERSION} == wilma || ${OS_VERSION} == xia || ${OS_VERSION} == zara ]]; then
-  ##sudo bash -c "$(wget -O - https://github.com/abcd567a/temp/raw/main/install-piaware-ubuntu24.sh)"
-  ##exit 0
+# LMDE-7 (Linux Mint Debian Edition)
+elif [[ ${OS_VERSION} == gigi ]]; then
   OS_EQV_VERSION=trixie
+
+  
   
 ## KALI LINUX
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2021 ]]; then
