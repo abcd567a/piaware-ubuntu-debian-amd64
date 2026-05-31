@@ -55,7 +55,7 @@ elif [[ ${OS_VERSION} == una || ${OS_VERSION} == uma || ${OS_VERSION} == ulyana 
   OS_EQV_VERSION=buster
 elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == victoria || ${OS_VERSION} == virginia ]]; then
   OS_EQV_VERSION=bullseye
-elif [[ ${OS_VERSION} == faye || ${OS_VERSION} == wilma || ${OS_VERSION} == xia || ${OS_VERSION} == zara ]]; then
+elif [[ ${OS_VERSION} == faye || ${OS_VERSION} == wilma || ${OS_VERSION} == xia || ${OS_VERSION} == zara || ${OS_VERSION} == zena ]]; then
   OS_EQV_VERSION=bookworm
 
 ## KALI LINUX
