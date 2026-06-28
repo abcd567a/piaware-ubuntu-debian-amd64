@@ -130,7 +130,7 @@ tcllib \
 itcl3 \
 rsyslog
 
-if [[ ${OS_EQV_VERSION} == bookworm || ${OS_EQV_VERSION} == trixie || ${OS_EQV_VERSION} == noble ]]; then
+if [[ ${OS_EQV_VERSION} == trixie || ${OS_EQV_VERSION} == noble ]]; then
   apt install -y python3-pyasyncore 
 fi
 
