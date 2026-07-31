@@ -3,7 +3,7 @@
 
 ### (a) Ubuntu 18, 20, 22, 23 & 24 - amd64 / x86_64  
 ### (b) Debian 9, 10, 11, 12 & 13 - amd64 / x86_64  
-### (c) Linux Mint 19, 20, 21 & 22 - amd64 / x86_64  
+### (c) Linux Mint 19, 20, 21 & 22 and LMDE6 Faye, LMDE7 Gigi - amd64 / x86_64  
 ### (d) Kali-linux 2021, 2022, 2023 & 2024 - amd64  
 ### (e) MX-linux 22, 23 & 25 - amd64 
 ### (f) antiX 22, 23 & 25 - amd64  
