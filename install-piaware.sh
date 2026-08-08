@@ -194,12 +194,13 @@ git clone --depth 1 https://github.com/flightaware/piaware_builder
 cd ${INSTALL_DIRECTORY}/piaware_builder
 echo -e "\e[1;32mBuilding the piaware package \e[0;39m"
 sleep 3
-## FORKY: Workaround for c_rehash error
-if [[ `lsb_release -sc` == forky ]]; then
-  sed -i "/piaware.git v11.0/a find \$OUTDIR/piaware -type f -exec sed -i 's/c_rehash/openssl rehash/g' {} +"  sensible-build.sh
-fi
 ./sensible-build.sh ${OS_EQV_VERSION}
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
+
+## FORKY: Workaround part 1 of 2 for c_rehash error
+if [[ `lsb_release -sc` == forky ]]; then
+  sed -i 's/c_rehash/openssl rehash/g' piaware/package/Makefile
+fi
 
 ## FORKY: Workaround part 2 of 2 for missing libboost-system-dev
 if [[ `lsb_release -sc` == forky ]]; then
