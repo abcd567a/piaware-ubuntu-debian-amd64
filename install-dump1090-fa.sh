@@ -57,6 +57,8 @@ elif [[ ${OS_VERSION} == vanessa || ${OS_VERSION} == vera || ${OS_VERSION} == vi
   OS_EQV_VERSION=bullseye
 elif [[ ${OS_VERSION} == faye || ${OS_VERSION} == wilma || ${OS_VERSION} == xia || ${OS_VERSION} == zara || ${OS_VERSION} == zena ]]; then
   OS_EQV_VERSION=bookworm
+elif [[ ${OS_VERSION} == gigi ]]; then
+  OS_EQV_VERSION=trixie
 
 ## KALI LINUX
 elif [[ ${OS_ID} == Kali && ${OS_RELEASE%.*} == 2021 ]]; then
