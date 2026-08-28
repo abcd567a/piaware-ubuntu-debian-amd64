@@ -113,7 +113,7 @@ libboost-filesystem-dev \
 patchelf
 ## FORKY: Workaround part 1 of 2 for missing libboost-system-dev
 if [[ `apt-cache policy libboost-system-dev | grep Candidate` == "" ]]; then 
-   apt install -y libboost-all-dev; 
+   apt install -y libboost-dev; 
 else 
    apt install -y libboost-system-dev; 
 fi
@@ -204,7 +204,7 @@ fi
 
 ## FORKY: Workaround part 2 of 2 for missing libboost-system-dev
 if [[ `lsb_release -sc` == forky ]]; then
-sed -i 's/libboost-system-dev,//' debian/control
+sed -i 's/libboost-system-dev,/libboost-dev,/' debian/control
 fi
 
 dpkg-buildpackage -b --no-sign 
