@@ -204,7 +204,7 @@ fi
 
 ## FORKY: Workaround part 2 of 2 for missing libboost-system-dev
 if [[ `lsb_release -sc` == forky ]]; then
-sed -i 's/libboost-system-dev,/libboost-dev,/' debian/control
+sed -i 's/libboost-system-dev/libboost-dev/' debian/control
 fi
 
 dpkg-buildpackage -b --no-sign 
