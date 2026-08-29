@@ -111,7 +111,7 @@ libboost-program-options-dev \
 libboost-regex-dev \
 libboost-filesystem-dev \
 patchelf
-## FORKY: Workaround part 1 of 2 for missing libboost-system-dev
+## FORKY: Workaround 1 of 3 (missing libboost-system-dev)
 if [[ `lsb_release -sc` == forky ]]; then
    apt install -y libboost-dev; 
 else 
@@ -197,12 +197,12 @@ sleep 3
 ./sensible-build.sh ${OS_EQV_VERSION}
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
 
-## FORKY: Workaround part 1 of 2 for c_rehash error
+## FORKY: Workaround part 2 of 3 (c_rehash error)
 if [[ `lsb_release -sc` == forky ]]; then
   sed -i 's/c_rehash/openssl rehash/g' piaware/package/Makefile
 fi
 
-## FORKY: Workaround part 2 of 2 for missing libboost-system-dev
+## FORKY: Workaround part 3 of 3 (missing libboost-system-dev)
 if [[ `lsb_release -sc` == forky ]]; then
 sed -i 's/libboost-system-dev/libboost-dev/' debian/control
 fi
