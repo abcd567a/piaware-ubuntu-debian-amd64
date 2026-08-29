@@ -112,7 +112,7 @@ libboost-regex-dev \
 libboost-filesystem-dev \
 patchelf
 ## FORKY: Workaround part 1 of 2 for missing libboost-system-dev
-if [[ `apt-cache policy libboost-system-dev | grep Candidate` == "" ]]; then 
+if [[ `lsb_release -sc` == forky ]]; then
    apt install -y libboost-dev; 
 else 
    apt install -y libboost-system-dev; 
