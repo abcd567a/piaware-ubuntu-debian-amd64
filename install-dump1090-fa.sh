@@ -127,6 +127,10 @@ echo -e "\e[32mBuilding dump1090-fa package\e[39m"
 ./prepare-build.sh ${OS_EQV_VERSION}
 cd ${INSTALL_DIRECTORY}/dump1090/package-${OS_EQV_VERSION}
 
+if [[ ${OS_VERSION} == forky ]]; then
+    sed -i 's/char strFl\[7\]/char strFl[16]/g' interactive.c
+fi
+
 dpkg-buildpackage -b --no-sign
 DUMP_VER=$(grep "Version:" debian/dump1090-fa/DEBIAN/control | sed 's/^Version: //')
 
