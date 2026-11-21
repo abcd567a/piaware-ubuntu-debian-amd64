@@ -45,7 +45,9 @@ elif [[ ${OS_VERSION} == noble ]]; then
    OS_EQV_VERSION=noble
 elif [[ ${OS_VERSION} == resolute ]]; then
    OS_EQV_VERSION=noble
-  
+elif [[ ${OS_VERSION} == tenacious ]]; then
+   OS_EQV_VERSION=noble
+
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
   OS_EQV_VERSION=stretch
@@ -81,7 +83,7 @@ else
    exit
 fi
 
-echo -e "\e[1;36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[0;39m"
+echo -e "\e[1;36mBUILDING PACKAGE USING VERSION" ${OS_VERSION} "\e[0;39m"
 
 echo -e "\e[1;32mInstalling Build Tools \e[0;39m"
 sleep 3
@@ -111,11 +113,11 @@ libboost-program-options-dev \
 libboost-regex-dev \
 libboost-filesystem-dev \
 patchelf
-## FORKY: Workaround 1 of 3 (missing libboost-system-dev)
-if [[ `lsb_release -sc` == forky ]]; then
-   apt install -y libboost-dev; 
-else 
-   apt install -y libboost-system-dev; 
+## FORKY & TENACIOUS: Workaround 1 of 3 (missing libboost-system-dev)
+if [[ `lsb_release -sc` == forky || `lsb_release -sc` == tenacious ]]; then
+   apt install -y libboost-dev;
+else
+   apt install -y libboost-system-dev;
 fi
 
 echo -e "\e[1;32mInstalling piaware dependencies \e[0;39m"
@@ -177,7 +179,7 @@ apt-mark hold tcl-tls
 
 fi
 
-echo -e "\e[1;36mBUILDING PIAWARE PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[0;39m"
+echo -e "\e[1;36mBUILDING PIAWARE PACKAGE USING VERSION" ${OS_VERSION} "\e[0;39m"
 sleep 3
 
 cd ${INSTALL_DIRECTORY}
@@ -197,13 +199,13 @@ sleep 3
 ./sensible-build.sh ${OS_EQV_VERSION}
 cd ${INSTALL_DIRECTORY}/piaware_builder/package-${OS_EQV_VERSION}
 
-## FORKY: Workaround part 2 of 3 (c_rehash error)
-if [[ `lsb_release -sc` == forky ]]; then
+## FORKY & TENACIOUS: Workaround part 2 of 3 (c_rehash error)
+if [[ `lsb_release -sc` == forky || `lsb_release -sc` == tenacious ]]; then
   sed -i 's/c_rehash/openssl rehash/g' piaware/package/Makefile
 fi
 
-## FORKY: Workaround part 3 of 3 (missing libboost-system-dev)
-if [[ `lsb_release -sc` == forky ]]; then
+## FORKY & TENACIOUS: Workaround part 3 of 3 (missing libboost-system-dev)
+if [[ `lsb_release -sc` == forky || `lsb_release -sc` == tenacious ]]; then
 sed -i 's/libboost-system-dev/libboost-dev/' debian/control
 fi
 
