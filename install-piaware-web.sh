@@ -42,7 +42,7 @@ elif [[ ${OS_VERSION} == kinetic ]]; then
   OS_VERSION=bullseye
 elif [[ ${OS_VERSION} == lunar || ${OS_VERSION} == mantic ]]; then
   OS_VERSION=bookworm
-elif [[ ${OS_VERSION} == noble || ${OS_VERSION} == resolute ]]; then
+elif [[ ${OS_VERSION} == noble || ${OS_VERSION} == resolute || ${OS_VERSION} == tenacious ]]; then
   OS_VERSION=trixie
 
 ## LINUX MINT
@@ -73,7 +73,7 @@ else
    exit
 fi
 
-echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
+echo -e "\e[36mBUILDING PACKAGE USING VERSION" ${OS_VERSION} "\e[39m"
 
 echo -e "\e[32mInstalling build tools\e[39m"
 apt install -y \
