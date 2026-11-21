@@ -46,7 +46,9 @@ elif [[ ${OS_VERSION} == noble ]]; then
   OS_VERSION=trixie
 elif [[ ${OS_VERSION} == resolute ]]; then
   OS_VERSION=trixie
-  
+elif [[ ${OS_VERSION} == tenacious ]]; then
+  OS_VERSION=trixie
+
 ## LINUX MINT
 elif [[ ${OS_VERSION} == tara || ${OS_VERSION} == tessa || ${OS_VERSION} == tina || ${OS_VERSION} == tricia ]]; then
   OS_VERSION=stretch
@@ -75,7 +77,7 @@ else
    exit
 fi
 
-echo -e "\e[36mBUILDING PACKAGE USING DEBIAN VER" ${OS_VERSION} "\e[39m"
+echo -e "\e[36mBUILDING PACKAGE USING VERSION" ${OS_VERSION} "\e[39m"
 
 echo -e "\e[32mInstalling Build tools and Build dependencies\e[39m"
 
